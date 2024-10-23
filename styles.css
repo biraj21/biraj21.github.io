@@ -8,6 +8,7 @@ body {
   max-width: 788px;
   margin: 0 auto;
   padding: 24px;
+  font-family: monospace;
 }
 
 h1,
@@ -19,6 +20,10 @@ h6,
 p,
 [role="paragraph"] {
   margin: 16px 0;
+}
+
+li {
+  margin-bottom: 6px;
 }
 
 .blog ul,
