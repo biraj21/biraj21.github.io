@@ -104,7 +104,8 @@
 
     <section id="socials">
       <a href="https://github.com/biraj21" target="_blank">
-        <img src="/images/icons/github.svg" alt="GitHub" />
+        <img src="/images/icons/github.svg" class="light-only" alt="GitHub" />
+        <img src="/images/icons/github-dark.svg" class="dark-only-inline" alt="GitHub" />
         <span class="print-only">github.com/biraj21</span>
       </a>
       <a href="https://twitter.com/not_salgaonkar" target="_blank">
@@ -112,7 +113,7 @@
         <span class="print-only">twitter.com/not_salgaonkar</span>
       </a>
       <a href="https://www.chess.com/member/biraj21" target="_blank">
-        <img src="/images/icons/chesscom.svg" alt="Chess.com" />
+        <img src="/images/icons/chesscom.png" alt="Chess.com" />
         <span class="print-only">chess.com/member/biraj21</span>
       </a>
       <a href="https://lichess.org/@/biraj21" target="_blank">
@@ -479,5 +480,7 @@
         document.querySelectorAll("details").forEach(($details) => $details.setAttribute("open", "open"));
       });
     </script>
+
+    <script src="/js/theme.js"></script>
   </body>
 </html>
