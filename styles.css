@@ -40,6 +40,11 @@ li {
   margin-top: -8px;
 }
 
+/* allow long words to break in inline <code> */
+code {
+  word-break: break-word;
+}
+
 code,
 .code-block {
   background-color: #d3d3d3;
@@ -51,6 +56,7 @@ code,
   display: block;
   margin: 8px 0 16px;
   padding: 8px;
+  word-break: normal;
   white-space: pre;
   overflow: auto;
 }
@@ -112,7 +118,7 @@ body.dark .theme-switcher {
 
 body.dark {
   background-color: black;
-  color: antiquewhite;
+  color: bisque;
 }
 
 body.dark .dark-only-inline {
