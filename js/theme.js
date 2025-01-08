@@ -1,7 +1,7 @@
 const THEME_DARK = "dark";
 const THEME_LIGHT = "light";
 
-window.onload = function () {
+window.addEventListener("DOMContentLoaded", () => {
   const theme = localStorage.getItem("theme") || THEME_DARK;
   if (theme === THEME_DARK) {
     document.body.classList.add(THEME_DARK);
@@ -18,7 +18,7 @@ window.onload = function () {
   $themeSwitcher.onclick = toggleTheme;
 
   document.body.insertBefore($themeSwitcher, document.body.firstChild);
-};
+});
 
 function toggleTheme() {
   const theme = localStorage.getItem("theme") || THEME_DARK;

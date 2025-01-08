@@ -59,7 +59,7 @@
       }
       #projects .project .project__source-code {
         display: inline-block;
-        margin-top: 2px;
+        margin-top: 4px;
       }
 
       #blogs ul {
@@ -112,11 +112,11 @@
         <img src="/images/icons/twitter.svg" alt="Twitter" />
         <span class="print-only">twitter.com/not_salgaonkar</span>
       </a>
-      <a href="https://www.chess.com/member/biraj21" target="_blank">
+      <a href="https://www.chess.com/member/biraj21" target="_blank" class="no-print">
         <img src="/images/icons/chesscom.png" alt="Chess.com" />
         <span class="print-only">chess.com/member/biraj21</span>
       </a>
-      <a href="https://lichess.org/@/biraj21" target="_blank">
+      <a href="https://lichess.org/@/biraj21" target="_blank" class="no-print">
         <img src="/images/icons/lichess.svg" alt="Lichess" />
         <span class="print-only">lichess.org/@/biraj21</span>
       </a>
@@ -152,7 +152,10 @@
               </h4>
 
               <details>
-                <summary>backend engineering and managing cloud infra at Outspeed.</summary>
+                <summary>
+                  backend engineering and managing cloud infra at
+                  <a href="https://outspeed.com" target="_blank">Outspeed</a>.
+                </summary>
                 <ul>
                   <li>
                     set up log shipping pipeline to send logs of our users' programs from our cloud to Loki on Grafana,
@@ -241,8 +244,8 @@
               </h4>
               <details>
                 <summary>
-                  migrated <a href="https://www.pickcel.com/">Pickcel</a>'s backend codebase from node 12 to node 18.
-                  also learnt Docker.
+                  migrated <a href="https://www.pickcel.com/" target="_blank">Pickcel</a>'s backend codebase from node
+                  12 to node 18. also learnt Docker.
                 </summary>
                 <ul>
                   <li>
@@ -253,7 +256,7 @@
                     optimized Dockerfile for our on-premise setup by properly reordering layers, reducing consecutive
                     build times and improving cache utilization. also added redis to the stack.
                   </li>
-                  <li>set up integration testing from scratch using Jest, SuperTest and GitHub Actions.</li>
+                  <li>set up integration testing using Jest, SuperTest and GitHub Actions.</li>
                   <li>
                     built a custom Ubuntu 20.04 ISO featuring automated installation and Docker setup, facilitating
                     swift deployment of containers on system startup.
@@ -277,7 +280,9 @@
         <h2>skills</h2>
         <ul>
           <li><strong>programming languages:</strong> <span>JavaScript (TypeScript), Python, Go, C, Bash</span></li>
-          <li><strong>libraries and frameworks:</strong> <span>React, Node.js, Express.js, Flask, FastAPI</span></li>
+          <li>
+            <strong>libraries and frameworks:</strong> <span>React, Node.js, Express.js, Flask, FastAPI, GraphQL</span>
+          </li>
           <li>
             <strong>tools and infra:</strong> <span>Docker, AWS, Terraform, Firebase, Git, Linux, GitHub Actions</span>
           </li>
@@ -292,6 +297,21 @@
       <h2>projects</h2>
       <div class="project">
         <h3>
+          AI Search
+          <img src="/images/icons/javascript.svg" alt="C" />
+        </h3>
+        <p>
+          an AI search tool (like <a href="https://perplexity.ai" target="_blank">Perplexity</a>) that pulls data from
+          <a href="https://developers.google.com/custom-search/v1/overview" target="_blank"
+            >Google Custom Search JSON API</a
+          >
+          and uses Llama 3 8B to generate answer with citations.
+          <br />
+          <a class="project__source-code" href="https://github.com/biraj21/ai-search" target="_blank"></a>
+        </p>
+      </div>
+      <div class="project">
+        <h3>
           TCP Server
           <img src="/images/icons/c.svg" alt="C" />
         </h3>
@@ -300,7 +320,7 @@
           without any third-party library. the server listens on a port and echoes back received data. i've also written
           a simple client to test the server.
           <br />
-          <a class="project__source-code" href="https://github.com/biraj21/tcp-server" target="_blank">source code</a>
+          <a class="project__source-code" href="https://github.com/biraj21/tcp-server" target="_blank"></a>
         </p>
       </div>
       <div class="project">
@@ -312,7 +332,7 @@
           Focker is a toy container runtime written in Go. it is based on Ubuntu 22.04 rootfs. this was an attempt to
           understand how Docker works internally.
           <br />
-          <a class="project__source-code" href="https://github.com/biraj21/web-wanderer" target="_blank">source code</a>
+          <a class="project__source-code" href="https://github.com/biraj21/web-wanderer" target="_blank"></a>
         </p>
       </div>
       <div class="project">
@@ -325,9 +345,11 @@
           of NumPy for tensor operations like +, -, *, /, matrix multiplication, transpose etc. it also supports
           <a href="https://numpy.org/doc/stable/user/basics.broadcasting.html">broadcasting</a>.
           <br />
-          <a class="project__source-code" href="https://github.com/biraj21/neural-networks-from-scratch" target="_blank"
-            >source code</a
-          >
+          <a
+            class="project__source-code"
+            href="https://github.com/biraj21/neural-networks-from-scratch"
+            target="_blank"
+          ></a>
         </p>
       </div>
       <div class="project">
@@ -339,7 +361,7 @@
           a CLI took to run Go programs in watch mode. to watch for changes, it uses `kqueue()` system call on macOS and
           `inotify` on Linux. no 3rd-party dependencies.
           <br />
-          <a class="project__source-code" href="https://github.com/biraj21/gomon" target="_blank">source code</a>
+          <a class="project__source-code" href="https://github.com/biraj21/gomon" target="_blank"></a>
         </p>
       </div>
       <div class="project">
@@ -348,12 +370,12 @@
           <img src="/images/icons/python.svg" alt="Python" />
         </h3>
         <p>
-          web wanderer is a multi-threaded web crawler written in Python. it uses
+          a multi-threaded web crawler written in Python. uses
           <code>concurrent.futures.ThreadPoolExecutor</code> and
           <a href="https://playwright.dev/" target="_blank">Playwright</a> to crawl and download web pages. it handles
-          dynamically rendered websites, making it capable of extracting content from modern web applications.
+          dynamically rendered websites, making it capable of extracting content from sites written in React, Vue, etc.
           <br />
-          <a class="project__source-code" href="https://github.com/biraj21/web-wanderer" target="_blank">source code</a>
+          <a class="project__source-code" href="https://github.com/biraj21/web-wanderer" target="_blank"></a>
         </p>
       </div>
       <div class="project">
@@ -362,12 +384,12 @@
           <img src="/images/icons/go.svg" alt="Go" />
         </h3>
         <p>
-          a JSON parser written in Go from scratch. it prints error message with line and column number.
+          a JSON parser written in Go from scratch. prints error message with line and column number.
           <a href="https://github.com/eatonphil" target="_blank">Phil Eaton</a>'s
           <a href="https://notes.eatonphil.com/writing-a-simple-json-parser.html" target="_blank">blog post</a>
           helped me write the lexer and parser. it was fun.
           <br />
-          <a class="project__source-code" href="https://github.com/biraj21/json-parser" target="_blank">source code</a>
+          <a class="project__source-code" href="https://github.com/biraj21/json-parser" target="_blank"></a>
         </p>
       </div>
       <div class="project">
@@ -376,12 +398,11 @@
           <img src="/images/icons/c.svg" alt="C" />
         </h3>
         <p>
-          it is a very minimal, nano-like text editor written in C from scratch, using only the standard library. i
-          followed
+          a minimal, nano-like text editor written in C from scratch. i followed
           <a href="https://viewsourcecode.org/snaptoken/kilo/" target="_blank">Build Your Own Text Editor</a>
-          tutorial. i learnt a lot about C and linux terminals while implementing this.
+          article. learnt a lot about C and linux terminals during this.
           <br />
-          <a class="project__source-code" href="https://github.com/biraj21/texterm" target="_blank">source code</a>
+          <a class="project__source-code" href="https://github.com/biraj21/texterm" target="_blank"></a>
         </p>
       </div>
       <div class="project">
@@ -390,12 +411,10 @@
           <img src="/images/icons/javascript.svg" alt="JavaScript" />
         </h3>
         <p>
-          it's a simple tool that helps you visualize multi-dimensional arrays. it uses HTML canvas for rendering the
-          image. i wrote this when i was trying to understand neural networks.
+          a tool that helps you visualize multi-dimensional arrays. uses HTML canvas for rendering the image. i wrote
+          this when i was trying to understand neural networks.
           <br />
-          <a class="project__source-code" href="https://github.com/biraj21/array-visualizer" target="_blank"
-            >source code</a
-          >
+          <a class="project__source-code" href="https://github.com/biraj21/array-visualizer" target="_blank"></a>
           <span class="separator-bar">|</span>
           <a href="https://arrayvis.netlify.app/" target="_blank">try it</a>
         </p>
@@ -411,9 +430,7 @@
           interpreter in C that combines repeated instructions, like <code>+++++ +++++</code> into
           <code>{ '+' : 10 }</code>, speeding up execution. it can also transpile Brainfuck code to C.
           <br />
-          <a class="project__source-code" href="https://github.com/biraj21/brainfuck-interpreter" target="_blank"
-            >source code</a
-          >
+          <a class="project__source-code" href="https://github.com/biraj21/brainfuck-interpreter" target="_blank"></a>
         </p>
       </div>
       <div class="project">
@@ -427,7 +444,7 @@
           for matches in files inside the subfolders. i wrote this because i wasn't aware of VS Code's search
           functionality at the time.
           <br />
-          <a class="project__source-code" href="https://github.com/biraj21/findrep" target="_blank">source code</a>
+          <a class="project__source-code" href="https://github.com/biraj21/findrep" target="_blank"></a>
         </p>
       </div>
     </section>
@@ -482,6 +499,8 @@
     </footer>
 
     <script>
+      document.querySelectorAll("a.project__source-code").forEach(($a) => ($a.innerHTML = "&rarr; source code"));
+
       // open all details elements before opening print dialog to ensure that all content is printed
       window.addEventListener("beforeprint", () => {
         document.querySelectorAll("details").forEach(($details) => $details.setAttribute("open", "open"));

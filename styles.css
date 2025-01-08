@@ -16,6 +16,11 @@ body {
   font-family: monospace;
 }
 
+a,
+a:visited {
+  color: blue;
+}
+
 h1,
 h2,
 h3,
@@ -133,7 +138,8 @@ body.dark .dark-only-flex {
   display: flex;
 }
 
-body.dark a {
+body.dark a,
+body.dark a:visited {
   color: lightblue;
 }
 
@@ -159,6 +165,6 @@ body.dark .light-only {
   }
 
   .no-print {
-    display: none;
+    display: none !important;
   }
 }
