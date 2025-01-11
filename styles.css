@@ -26,14 +26,17 @@ h2,
 h3,
 h4,
 h5,
-h6,
-p,
-[role="paragraph"] {
+h6 {
   margin: 16px 0;
 }
 
+p,
+[role="paragraph"] {
+  margin: 24px 0;
+}
+
 li {
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .blog ul,

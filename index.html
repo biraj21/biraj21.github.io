@@ -92,7 +92,8 @@
     <h1 class="no-print">welcome to Biraj's</h1>
     <p class="no-print">
       i know a little bit about software engineering. i play chess (1800 rapid on
-      <a href="https://lichess.org/@/biraj21" target="_blank">lichess</a>) and badminton. i am currently reading Sherlock Holmes (not consistently tho).
+      <a href="https://lichess.org/@/biraj21" target="_blank">lichess</a>) and badminton. i am currently reading
+      Sherlock Holmes (not consistently tho).
     </p>
 
     <h1 class="print-only">Biraj Patel</h1>
@@ -193,10 +194,6 @@
                 </summary>
                 <ul>
                   <li>
-                    developed backend services for ThinkstackAI - GraphQL with Node.js, REST APIs with Flask (Python),
-                    Redis for caching and S3 for file management.
-                  </li>
-                  <li>
                     implemented Retrieval Augmented Generation (RAG) in Thinkstack: chunking user data, generating
                     embeddings, and storing them in Pinecone (and later querying them with similarity search of course).
                   </li>
@@ -206,10 +203,12 @@
                     handing off to a human, etc.
                   </li>
                   <li>
-                    developed Thinkstack's frontend (<a href="https://app.thinkstack.ai/login" target="_blank"
+                    developed Thinkstack's backend and frontend (<a
+                      href="https://app.thinkstack.ai/login"
+                      target="_blank"
                       >app.thinkstack.ai</a
-                    >) in React.js and Tailwind CSS, while optimizing for performance through the use of memoization and
-                    debouncing.
+                    >). worked with Node.js, GraphQL, Flask (Python), Redis, React.js (Next.js SSG), Tailwind CSS and
+                    AWS (Cognito, S3, API Gateway, CloudFormation etc).
                   </li>
                   <li>
                     created an event notification system using pub/sub to send backend events (e.g., website crawling
@@ -292,7 +291,7 @@
       <h2>projects</h2>
       <div class="project">
         <h3>
-          AI Search
+          AI search
           <img src="/images/icons/javascript.svg" alt="C" />
         </h3>
         <p>
@@ -300,34 +299,9 @@
           <a href="https://developers.google.com/custom-search/v1/overview" target="_blank"
             >Google Custom Search JSON API</a
           >
-          and uses Llama 3 8B to generate answer with citations.
+          and uses Llama 3 to generate answer with citations.
           <br />
           <a class="project__source-code" href="https://github.com/biraj21/ai-search" target="_blank"></a>
-        </p>
-      </div>
-      <div class="project">
-        <h3>
-          TCP Server
-          <img src="/images/icons/c.svg" alt="C" />
-        </h3>
-        <p>
-          a single-threaded TCP server written in C with an event loop using the <code>poll()</code> system call,
-          without any third-party library. the server listens on a port and echoes back received data. i've also written
-          a simple client to test the server.
-          <br />
-          <a class="project__source-code" href="https://github.com/biraj21/tcp-server" target="_blank"></a>
-        </p>
-      </div>
-      <div class="project">
-        <h3>
-          focker: linux containers
-          <img src="/images/icons/go.svg" alt="Go" />
-        </h3>
-        <p>
-          Focker is a toy container runtime written in Go. it is based on Ubuntu 22.04 rootfs. this was an attempt to
-          understand how Docker works internally.
-          <br />
-          <a class="project__source-code" href="https://github.com/biraj21/web-wanderer" target="_blank"></a>
         </p>
       </div>
       <div class="project">
@@ -349,14 +323,53 @@
       </div>
       <div class="project">
         <h3>
+          tensor visualizer
+          <img src="/images/icons/javascript.svg" alt="JavaScript" />
+        </h3>
+        <p>
+          a tool that helps you visualize multi-dimensional arrays. uses HTML canvas for rendering the image. i wrote
+          this when i was trying to understand neural networks.
+          <br />
+          <a class="project__source-code" href="https://github.com/biraj21/array-visualizer" target="_blank"></a>
+          <span class="separator-bar">|</span>
+          <a href="https://arrayvis.netlify.app/" target="_blank">try it</a>
+        </p>
+      </div>
+      <div class="project">
+        <h3>
+          TCP server
+          <img src="/images/icons/c.svg" alt="C" />
+        </h3>
+        <p>
+          a single-threaded TCP server written in C with an event loop using the <code>poll()</code> system call,
+          without any third-party library. the server listens on a port and echoes back received data. i've also written
+          a simple client to test the server.
+          <br />
+          <a class="project__source-code" href="https://github.com/biraj21/tcp-server" target="_blank"></a>
+        </p>
+      </div>
+      <div class="project">
+        <h3>
           gomon: nodemon for Go files
           <img src="/images/icons/go.svg" alt="Go" />
         </h3>
         <p>
-          a CLI took to run Go programs in watch mode. to watch for changes, it uses `kqueue()` system call on macOS and
-          `inotify` on Linux. no 3rd-party dependencies.
+          a CLI took to run Go programs in watch mode. to watch for changes, it uses <code>kqueue()</code> system call
+          on macOS and <code>inotify</code> on Linux. no 3rd-party dependencies.
           <br />
           <a class="project__source-code" href="https://github.com/biraj21/gomon" target="_blank"></a>
+        </p>
+      </div>
+      <div class="project">
+        <h3>
+          focker: Linux containers
+          <img src="/images/icons/go.svg" alt="Go" />
+        </h3>
+        <p>
+          Focker is a toy container runtime written in Go. it is based on Ubuntu 22.04 rootfs. this was an attempt to
+          understand how Docker works internally.
+          <br />
+          <a class="project__source-code" href="https://github.com/biraj21/focker" target="_blank"></a>
         </p>
       </div>
       <div class="project">
@@ -400,20 +413,7 @@
           <a class="project__source-code" href="https://github.com/biraj21/texterm" target="_blank"></a>
         </p>
       </div>
-      <div class="project">
-        <h3>
-          array (or tensor) visualizer
-          <img src="/images/icons/javascript.svg" alt="JavaScript" />
-        </h3>
-        <p>
-          a tool that helps you visualize multi-dimensional arrays. uses HTML canvas for rendering the image. i wrote
-          this when i was trying to understand neural networks.
-          <br />
-          <a class="project__source-code" href="https://github.com/biraj21/array-visualizer" target="_blank"></a>
-          <span class="separator-bar">|</span>
-          <a href="https://arrayvis.netlify.app/" target="_blank">try it</a>
-        </p>
-      </div>
+
       <div class="project">
         <h3>
           brainfuck interpreter
@@ -434,10 +434,8 @@
           <img src="/images/icons/python.svg" alt="Python" />
         </h3>
         <p>
-          a simple GUI tool written with Tkinter in Python to find and replace all the matches of a regular expression
-          in files. you can either select the files directly or select a folder, in which case it will recursively look
-          for matches in files inside the subfolders. i wrote this because i wasn't aware of VS Code's search
-          functionality at the time.
+          a GUI tool written with Tkinter in Python to find and replace all the matches of a regular expression in files
+          and folders (recursively). i wrote this because i wasn't aware of VS Code's search functionality at the time.
           <br />
           <a class="project__source-code" href="https://github.com/biraj21/findrep" target="_blank"></a>
         </p>
