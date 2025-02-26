@@ -1,0 +1,173 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-light: white;
+  --bg-dark: black;
+}
+
+body {
+  max-width: 788px;
+  margin: 0 auto;
+  padding: 24px;
+  font-family: monospace;
+}
+
+a,
+a:visited {
+  color: blue;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 16px 0;
+}
+
+p,
+[role="paragraph"] {
+  margin: 24px 0;
+}
+
+li {
+  margin-bottom: 8px;
+}
+
+.blog ul,
+.blog ol {
+  margin: 8px 0 8px 16px;
+}
+
+.blog .blog__byline {
+  margin-top: -8px;
+}
+
+/* allow long words to break in inline <code> */
+code {
+  word-break: break-word;
+}
+
+code,
+.code-block {
+  background-color: #d3d3d3;
+  padding: 1px 2px;
+  border-radius: 2px;
+}
+
+.code-block {
+  display: block;
+  margin: 8px 0 16px;
+  padding: 8px;
+  word-break: normal;
+  white-space: pre;
+  overflow: auto;
+}
+
+blockquote {
+  background: #f9f9f9;
+  border-left: 8px solid #ccc;
+  margin: 16px 0;
+  padding: 8px;
+}
+
+blockquote:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 3rem;
+  line-height: 0.1rem;
+  margin-right: 0.25rem;
+  vertical-align: bottom;
+}
+/* without this, subsequent <blockquote> elements were starting with only a single quote */
+blockquote:after {
+  content: close-quote;
+  visibility: hidden;
+}
+
+hr {
+  margin: 24px 0;
+}
+
+.print-only {
+  display: none;
+}
+
+/* 🏎️ theme styles start */
+.theme-switcher {
+  width: 32px;
+  height: 32px;
+  position: fixed;
+  top: 8px;
+  right: 8px;
+  z-index: 50;
+  font-size: large;
+  background-color: var(--bg-light);
+  border: 1px solid var(--bg-dark);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+body.dark .theme-switcher {
+  background-color: var(--bg-dark);
+  border: 1px solid var(--bg-light);
+}
+
+.dark-only-inline,
+.dark-only-block,
+.dark-only-flex {
+  display: none;
+}
+
+body.dark {
+  background-color: black;
+  color: bisque;
+}
+
+body.dark .dark-only-inline {
+  display: inline;
+}
+
+body.dark .dark-only-block {
+  display: block;
+}
+
+body.dark .dark-only-flex {
+  display: flex;
+}
+
+body.dark a,
+body.dark a:visited {
+  color: lightblue;
+}
+
+body.dark code,
+body.dark .code-block {
+  background-color: darkslategrey;
+}
+
+body.dark blockquote {
+  background: darkslategrey;
+  border-left: 8px solid #303030;
+}
+
+/* hide the light-only elements */
+body.dark .light-only {
+  display: none;
+}
+/* 🏁 theme styles end */
+
+@media print {
+  .print-only {
+    display: block;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}

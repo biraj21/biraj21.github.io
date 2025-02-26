@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Empty Strings and Zero-length Arrays: How do We Store... Nothing?</title>
+    <meta
+      name="description"
+      content="Explore the intriguing concept of storing empty strings and zero-length arrays in programming. Understand how nothing can still be something in the world of code."
+    />
+    <meta
+      name="keywords"
+      content="programming, empty strings, zero-length arrays, C programming, memory management, coding concepts, computer science"
+    />
+    <meta name="author" content="Biraj" />
+    <meta property="og:title" content="Empty Strings and Zero-length Arrays: How do We Store... Nothing?" />
+    <meta
+      property="og:description"
+      content="Explore the intriguing concept of storing empty strings and zero-length arrays in programming. Understand how nothing can still be something in the world of code."
+    />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://biraj21.github.io/blogs/empty-strings-and-zero-length-arrays" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Empty Strings and Zero-length Arrays: How do We Store... Nothing?" />
+    <meta
+      name="twitter:description"
+      content="Explore the intriguing concept of storing empty strings and zero-length arrays in programming. Understand how nothing can still be something in the world of code."
+    />
+    <link rel="canonical" href="https://biraj21.github.io/blogs/empty-strings-and-zero-length-arrays.html" />
+
+    <link rel="stylesheet" href="/styles.css" />
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png" />
+    <link rel="manifest" href="/images/favicon/site.webmanifest" />
+  </head>
+  <body class="blog">
+    <h1>Empty Strings and Zero-length Arrays: How do We Store... Nothing?</h1>
+    <p class="blog__byline">by <a href="/">Biraj</a> on <time datetime="2024-06-15">15th June 2024</time></p>
+
+    <div role="paragraph">
+      In high-level languages like Python and JavaScript, we are pretty used to initializing strings and arrays like
+      this:
+      <pre><code class="code-block">let myStr = ""; // an empty string
+let myArr = []; // an empty array</code></pre>
+
+      We're saying that these are empty, which implies they contain zero bytes of data. So we are storing zero-bytes of
+      data? Huh? Tf is this paradoxical nonsense?
+    </div>
+
+    <h2>Storing Nothing</h2>
+    <p>
+      An empty array or string doesn't contain any elements or characters, yet it exists. This can feel as paradoxical
+      as carrying an invisible suitcase that weighs nothing. But how do we make sense of this? *drumrolls* Actually,
+      it's NOT empty.
+    </p>
+
+    <h2>Strings: The C Language Perspective</h2>
+    <p>
+      To unravel this mystery, let's take a trip to the world of C programming. In C, strings are typically handled as
+      arrays of characters ending with a <em>null character</em> (<code>'\0'</code>). But what happens when you want an
+      empty string?
+    </p>
+    <p>
+      When you create an empty string in C, you are essentially allocating a string that points to a memory location
+      that stores the null character. This is akin to reserving a seat at a table for a ghost. The chair is there, the
+      place is set, but nobody's coming to dinner. Reminds me of my last date.
+    </p>
+    <div role="paragraph">
+      Here's a simple representation in C:
+
+      <pre><code class="code-block">char emptyString[1] = "";</code></pre>
+
+      In this example, <code>emptyString</code> is an array with a single element (notice the <code>[1]</code>in the
+      declaration), which is the null terminator. The length of the string is zero, but the pointer
+      <code>emptyString</code> itself is very much real and occupies memory. It's like having an address to an empty
+      house.
+    </div>
+    <div role="paragraph">
+      In C, the length of a string is determined by iterating through each character until the null terminator
+      (<code>'\0'</code>) is encountered. This is exactly what the <code>strlen()</code> function does. It counts
+      characters until it finds the null byte, excluding the terminator itself.
+
+      <blockquote cite="https://www.man7.org/linux/man-pages/man3/strlen.3.html">
+        The strlen() function calculates the length of the string pointed to by s, excluding the terminating null byte
+        (<code>'\0'</code>).
+      </blockquote>
+
+      So <code>strlen(emptyString)</code> will start the counter with 0 but immediately reach the null byte, resulting
+      in a length of 0.
+    </div>
+
+    <h2>Zero-Length Arrays</h2>
+    <div role="paragraph">
+      In C, arrays are typically fixed in size once declared. So first let's C (ok sorry, see) how we can implement a
+      dynamic or growable array of integers using a struct:
+
+      <pre><code class="code-block">struct IntArray {
+  int *data;     // pointer to the array's data
+  int length;    // current number of elements in the array
+  int capacity;  // maximum capacity of the array
+};</code></pre>
+
+      Here, <code>IntArray</code> represents a C struct that manages an array of integers. It consists of:
+      <ol>
+        <li><code>data</code>: A pointer to the array's data (which can dynamically grow).</li>
+        <li><code>length</code>: The current number of elements in the array.</li>
+        <li>
+          <code>capacity</code>: The maximum capacity of the array, indicating how many elements can be stored before
+          needing to resize.
+        </li>
+      </ol>
+    </div>
+    <p>
+      Unlike traditional fixed-size arrays, instances of <code>IntArray</code> can dynamically adjust their size as
+      elements are added or removed, akin to how arrays work in higher-level languages like Python or JavaScript.
+      However, in C, this flexibility comes with added responsibility. Developers must manually manage memory allocation
+      and resizing. They need to track the array's length when pushing or popping elements.
+    </p>
+    <p>
+      When an <code>IntArray</code> is initialized, memory is allocated based on the <code>capacity</code> in bytes, and
+      the address of the allocated memory is stored in the <code>data</code> pointer. The <code>length</code> field is
+      then set to zero. This process is analogous to what higher-level languages like JavaScript do internally when you
+      create an empty array.
+    </p>
+
+    <h2>Why This Matters</h2>
+    <div role="paragraph">
+      Knowing that an empty string in C is just a pointer that points to <code>'\0'</code> character feels good.
+      Curiosity is reason enough! Here's what I tweeted today:
+      <blockquote cite="https://x.com/not_salgaonkar/status/1801878409343082878">
+        go underneath those abstractions anon, and you'll experience wonders.
+      </blockquote>
+    </div>
+
+    <script src="/js/blogs/add-top-nav.js"></script>
+    <script src="/js/theme.js"></script>
+  </body>
+</html>

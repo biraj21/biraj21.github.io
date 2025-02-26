@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My From-Scratch Projects</title>
+    <meta
+      name="description"
+      content="Things that I created from scratch to understand internals and satisfy my curiosity."
+    />
+    <meta
+      name="keywords"
+      content="programming, Go, Golang, C programming, from scratch, coding concepts, computer science"
+    />
+    <meta name="author" content="Biraj" />
+    <meta property="og:title" content="My From-Scratch Projects" />
+    <meta
+      property="og:description"
+      content="Things that I created from scratch to understand internals and satisfy my curiosity."
+    />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://biraj21.github.io/blogs/from-scratch.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="My From-Scratch Projects" />
+    <meta
+      name="twitter:description"
+      content="Things that I created from scratch to understand internals and satisfy my curiosity."
+    />
+    <link rel="canonical" href="https://biraj21.github.io/blogs/from-scratch.html" />
+
+    <link rel="stylesheet" href="/styles.css" />
+
+    <style>
+      #from-scratch-list > li > label > input {
+        margin-right: 8px;
+      }
+    </style>
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png" />
+    <link rel="manifest" href="/images/favicon/site.webmanifest" />
+  </head>
+  <body class="blog">
+    <h1>my "from scratch" projects</h1>
+
+    <p>
+      here are things i've learnt and built toy versions of. they're not production grade, just for my own learning. i'm
+      not an inventor; i learnt how to build these from internet resources. just satisfying my curiosity and fighting
+      mediocrity.
+    </p>
+
+    <ul id="from-scratch-list"></ul>
+
+    <footer style="text-align: center; margin-top: 32px">
+      <a href="/">Biraj</a>
+    </footer>
+
+    <script src="/js/blogs/add-top-nav.js"></script>
+    <script src="/js/theme.js"></script>
+    <script>
+      const projects = [
+        { title: "TCP Server in C (SOCK_STREAM)", done: true, github: "https://github.com/biraj21/tcp-server" },
+        { title: "HTTP Server in C", done: true, github: "https://github.com/biraj21/http-server-in-c" },
+        { title: "Linux containers in Go", done: true, github: "https://github.com/biraj21/focker" },
+        {
+          title: "WebSocket Server in Node.js",
+          done: true,
+          github: "https://github.com/biraj21/websocket-server-from-scratch",
+        },
+        { title: "NumPy in Go", done: true, github: "https://github.com/biraj21/neural-networks-from-scratch" },
+        { title: "JSON Parser in Go", done: true, github: "https://github.com/biraj21/json-parser" },
+        {
+          title: "Multer (multipart/form-data decoder) in Node.js",
+          done: true,
+          github: "https://github.com/biraj21/node-multipart-formdata-decoder",
+        },
+        { title: "An Express-like library in Node.js", done: true, github: "https://github.com/biraj21/queen-js" },
+        { title: "Nano-like text editor in C", done: true, github: "https://github.com/biraj21/texterm" },
+        { title: "Brainfuck interpreter in C", done: true, github: "https://github.com/biraj21/brainfuck-interpreter" },
+        { title: "A React-like library in JavaScript", done: false, github: "https://github.com/biraj21/" },
+        { title: "Redis in C (both client & server)", done: false, github: "https://github.com/biraj21/" },
+        {
+          title: "Neural Networks in Go",
+          done: false,
+          github: "https://github.com/biraj21neural-networks-from-scratch/",
+        },
+        { title: "Load balancer in Go", done: false, github: "https://github.com/biraj21/" },
+        { title: "Web Crawler in Go", done: false, github: "https://github.com/biraj21/" },
+        { title: "SMTP Server in ??", done: false, github: "https://github.com/biraj21/" },
+        { title: "GZIP compression in ??", done: false, github: "https://github.com/biraj21/" },
+        { title: "VectorDB in ??", done: false, github: "https://github.com/biraj21/" },
+        { title: "SQL-like Database in ??", done: false, github: "https://github.com/biraj21/" },
+        { title: "An Interpreted Programming Language in ??", done: false, github: "https://github.com/biraj21/" },
+        { title: "?? in OCaml", done: false, github: "https://github.com/biraj21/" },
+        { title: "ssh in ??", done: false, github: "https://github.com/biraj21/" },
+      ];
+
+      const $list = document.getElementById("from-scratch-list");
+
+      projects.forEach((project) => {
+        const $li = document.createElement("li");
+
+        const $label = document.createElement("label");
+
+        const $input = document.createElement("input");
+        $input.type = "checkbox";
+        $input.checked = project.done;
+
+        $label.appendChild($input);
+
+        const $a = document.createElement("a");
+        $a.href = project.github || "#";
+        $a.target = "_blank";
+        $a.appendChild(document.createTextNode(project.title));
+        $label.appendChild($a);
+
+        $li.appendChild($label);
+        $list.appendChild($li);
+      });
+    </script>
+  </body>
+</html>
