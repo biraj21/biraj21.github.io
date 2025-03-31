@@ -42,6 +42,9 @@
         margin-top: 8px;
         margin-left: 16px;
       }
+      #work-experience .work em {
+        font-weight: 600;
+      }
 
       #skills > ul {
         text-align: left;
@@ -121,12 +124,10 @@
         <img src="/images/icons/lichess.svg" alt="Lichess" />
         <span class="print-only">lichess.org/@/biraj21</span>
       </a>
-      <!--
       <a href="https://www.linkedin.com/in/biraj21/" target="_blank">
         <img src="/images/icons/linkedin.svg" alt="LinkedIn" />
         <span class="print-only">linkedin.com/in/biraj21</span>
       </a>
-      -->
     </section>
 
     <hr />
@@ -148,7 +149,7 @@
           <ul>
             <li>
               <h4>
-                founding backend engineer
+                founding engineer
                 <small>
                   <time datetime="2024-09-01">sept 2024</time>
                 </small>
@@ -161,17 +162,18 @@
                 </summary>
                 <ul>
                   <li>
-                    implemented OpenAI Realtime API compatible voice interaction system using WebRTC and open-source
-                    multimodal models with streaming inference, voice activity detection and interrupts.
+                    implemented OpenAI Realtime API compatible
+                    <em>voice AI interaction system using open-source multimodal models and WebRTC</em>
+                    with streaming inference, voice activity detection and interrupts.
                   </li>
                   <li>
-                    set up log shipping pipeline to send logs of our users' programs from our cloud to Loki on Grafana,
-                    then established a websocket connection from the backend to Loki and streamed the logs to the
-                    frontend using server-sent events.
+                    set up <em>log shipping pipeline</em> to send logs of our users' programs from our cloud to Loki on
+                    Grafana, then established a websocket connection from the backend to Loki and streamed the logs to
+                    the frontend using server-sent events.
                   </li>
                   <li>
-                    created Terraform configurations to deploy a Nomad cluster on AWS, including EC2 instances with
-                    cloud-init scripts, S3 buckets, Redis ElastiCache, ECR, IAM roles for EC2s, etc.
+                    created Terraform configurations to <em>deploy a Nomad cluster on AWS</em>, including EC2 instances
+                    with cloud-init scripts, S3 buckets, Redis ElastiCache, ECR, IAM roles for EC2s, etc.
                   </li>
                 </ul>
               </details>
@@ -205,16 +207,17 @@
                 </summary>
                 <ul>
                   <li>
-                    implemented Retrieval Augmented Generation (RAG) in Thinkstack: chunking user data, generating
-                    embeddings, and storing them in Pinecone (and later querying them with similarity search of course).
+                    implemented <em>Retrieval Augmented Generation (RAG)</em> in Thinkstack: chunking user data,
+                    generating embeddings, and storing them in Pinecone (and later querying them with similarity search
+                    of course).
                   </li>
                   <li>
-                    built user intent detection system using GPT's function calling. given a set of intents, it
+                    built user <em>intent detection</em> system using GPT's function calling. given a set of intents, it
                     identifies appropriate action to be taken, such as collecting user details, creating tickets,
                     handing off to a human, etc.
                   </li>
                   <li>
-                    developed Thinkstack's backend and frontend (<a
+                    developed <em>Thinkstack's backend and frontend</em> (<a
                       href="https://app.thinkstack.ai/login"
                       target="_blank"
                       >app.thinkstack.ai</a
@@ -222,18 +225,18 @@
                     AWS (Cognito, S3, API Gateway, CloudFormation etc).
                   </li>
                   <li>
-                    created an event notification system using pub/sub to send backend events (e.g., website crawling
-                    completion) to the frontend, which uses a React context provider i wrote to consume these events and
-                    perform some actions.
+                    created an event notification system using <em>pub/sub to send backend events</em> (e.g., website
+                    crawling completion) to the frontend, which uses a React context provider i wrote to consume these
+                    events and perform some actions.
                   </li>
                   <li>
-                    built sub-users, roles and permissions management system for the app - both backend and frontend.
-                    same for human handoff flow.
+                    built <em>sub-users, roles and permissions management</em> system for the app - both backend and
+                    frontend. same for human handoff flow.
                   </li>
                   <li>
                     created Zapier, Slack, WhatsApp, Facebook Messenger and Instagram integrations for Thinkstack. also
-                    built its API key management system for authentication. users can use their API keys to authenticate
-                    themselves at Zapier's Thinkstack integration.
+                    built its <em>API key management</em> system for authentication. users can use their API keys to
+                    authenticate themselves at Zapier's Thinkstack integration.
                   </li>
                 </ul>
               </details>
@@ -254,16 +257,17 @@
                 </summary>
                 <ul>
                   <li>
-                    worked with TypeScript, Node.js, and Mongoose to update and optimize existing REST APIs by adding
-                    concurrency. set up integration testing using Jest, SuperTest and GitHub Actions.
+                    worked with TypeScript, Node.js, and Mongoose to update and
+                    <em>optimize existing REST APIs by adding concurrency</em>. set up integration testing using Jest,
+                    SuperTest and GitHub Actions.
                   </li>
                   <li>
-                    optimized Dockerfile for our on-premise setup by properly reordering layers, reducing consecutive
-                    build times and improving cache utilization. also added redis to the stack.
+                    <em>optimized Dockerfile for our on-premise setup</em> by properly reordering layers, reducing
+                    consecutive build times and improving cache utilization. also added redis to the stack.
                   </li>
                   <li>
-                    introduced semantic git commits, coding conventions, and structure, which is now embraced by all
-                    developers in the organization.
+                    introduced <em>semantic git commits</em>, coding conventions, and structure, which is now embraced
+                    by all developers in the organization.
                   </li>
                 </ul>
               </details>
