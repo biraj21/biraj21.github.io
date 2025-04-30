@@ -162,16 +162,23 @@
                 </summary>
                 <ul>
                   <li>
-                    built OpenAI Realtime API compatible
-                    <em>voice AI interaction system using open-source models and WebRTC</em>
-                    with streaming inference, voice activity detection and interrupts.
-                    it uses a multi-threaded, event driven architecture.
+                    built
+                    <em>voice AI interaction system by deploying open-source models</em>
+                    with streaming inference, voice activity detection and interrupts. it uses webrtc and a
+                    multi-threaded, event-driven architecture.
+                  </li>
+                  <li>
+                    designed the system to be
+                    <em>compatible with OpenAI Realtime API specifications</em>, allowing users to integrate it using
+                    the same event structure and protocols as OpenAI's. also built
+                    <a href="https://github.com/outspeed-ai/voice-devtools">voice devtools</a>
+                    (<a href="https://demo.outspeed.com/">live here</a>) for debugging.
                   </li>
                   <li>
                     implemented realtime Voice Activity Detection (VAD) using
-                    <em>Silero VAD model for audio stream processing</em>.
-                    it handles user interrupts. also implemented semantic VAD,
-                    where the model is less likely to interrupt the user during a speech-to-speech conversation.
+                    <em>Silero VAD model for audio stream processing</em>. it handles user interrupts. also implemented
+                    semantic VAD, where the model is less likely to interrupt the user during a speech-to-speech
+                    conversation.
                   </li>
                   <li>
                     set up <em>log shipping pipeline</em> to send logs of our users' programs from our cloud to Loki on
