@@ -162,9 +162,16 @@
                 </summary>
                 <ul>
                   <li>
-                    implemented OpenAI Realtime API compatible
-                    <em>voice AI interaction system using open-source multimodal models and WebRTC</em>
+                    built OpenAI Realtime API compatible
+                    <em>voice AI interaction system using open-source models and WebRTC</em>
                     with streaming inference, voice activity detection and interrupts.
+                    it uses a multi-threaded, event driven architecture.
+                  </li>
+                  <li>
+                    implemented realtime Voice Activity Detection (VAD) using
+                    <em>Silero VAD model for audio stream processing</em>.
+                    it handles user interrupts. also implemented semantic VAD,
+                    where the model is less likely to interrupt the user during a speech-to-speech conversation.
                   </li>
                   <li>
                     set up <em>log shipping pipeline</em> to send logs of our users' programs from our cloud to Loki on
