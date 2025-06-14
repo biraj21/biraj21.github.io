@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -7,13 +9,14 @@
 :root {
   --bg-light: white;
   --bg-dark: black;
+  font-family: "Fira Code", monospace;
+  font-optical-sizing: auto;
 }
 
 body {
   max-width: 788px;
   margin: 0 auto;
   padding: 24px;
-  font-family: monospace;
 }
 
 a,
