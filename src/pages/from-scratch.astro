@@ -1,0 +1,138 @@
+---
+import BlogPost from "@/layouts/BlogPost.astro";
+
+const projects = [
+  {
+    title: "TCP Server in C (SOCK_STREAM)",
+    done: true,
+    github: "https://github.com/biraj21/tcp-server",
+  },
+  {
+    title: "HTTP Server in C",
+    done: true,
+    github: "https://github.com/biraj21/http-server-in-c",
+  },
+  {
+    title: "Linux containers in Go",
+    done: true,
+    github: "https://github.com/biraj21/focker",
+  },
+  {
+    title: "WebSocket Server in Node.js",
+    done: true,
+    github: "https://github.com/biraj21/websocket-server-from-scratch",
+  },
+  {
+    title: "NumPy in Go",
+    done: true,
+    github: "https://github.com/biraj21/neural-networks-from-scratch",
+  },
+  {
+    title: "JSON Parser in Go",
+    done: true,
+    github: "https://github.com/biraj21/json-parser",
+  },
+  {
+    title: "Multer (multipart/form-data decoder) in Node.js",
+    done: true,
+    github: "https://github.com/biraj21/node-multipart-formdata-decoder",
+  },
+  {
+    title: "An Express-like library in Node.js",
+    done: true,
+    github: "https://github.com/biraj21/queen-js",
+  },
+  {
+    title: "Nano-like text editor in C",
+    done: true,
+    github: "https://github.com/biraj21/texterm",
+  },
+  {
+    title: "Brainfuck interpreter in C",
+    done: true,
+    github: "https://github.com/biraj21/brainfuck-interpreter",
+  },
+  {
+    title: "A React-like library in JavaScript",
+    done: false,
+    github: "https://github.com/biraj21/",
+  },
+  {
+    title: "Redis in C (both client & server)",
+    done: false,
+    github: "https://github.com/biraj21/",
+  },
+  {
+    title: "Neural Networks in Go",
+    done: false,
+    github: "https://github.com/biraj21neural-networks-from-scratch/",
+  },
+  {
+    title: "Load balancer in Go",
+    done: false,
+    github: "https://github.com/biraj21/",
+  },
+  {
+    title: "Web Crawler in Go",
+    done: false,
+    github: "https://github.com/biraj21/",
+  },
+  {
+    title: "SMTP Server in ??",
+    done: false,
+    github: "https://github.com/biraj21/",
+  },
+  {
+    title: "GZIP compression in ??",
+    done: false,
+    github: "https://github.com/biraj21/",
+  },
+  {
+    title: "VectorDB in ??",
+    done: false,
+    github: "https://github.com/biraj21/",
+  },
+  {
+    title: "SQL-like Database in ??",
+    done: false,
+    github: "https://github.com/biraj21/",
+  },
+  {
+    title: "An Interpreted Programming Language in ??",
+    done: false,
+    github: "https://github.com/biraj21/",
+  },
+  { title: "?? in OCaml", done: false, github: "https://github.com/biraj21/" },
+  { title: "ssh in ??", done: false, github: "https://github.com/biraj21/" },
+];
+
+const frontmatter = {
+  title: "my 'from scratch' projects",
+  description:
+    "here are things i've learnt and built toy versions of. they're not production grade, just for my own learning. i'm not an inventor; i learnt how to build these from internet resources. just satisfying my curiosity and escaping mediocrity.",
+};
+---
+
+<BlogPost frontmatter={frontmatter}>
+  <ul>
+    {
+      projects.map((project) => (
+        <li>
+          <label>
+            <input type="checkbox" checked={project.done} />
+            <a href={project.github || "#"} target="_blank">
+              {project.title}
+            </a>
+          </label>
+        </li>
+      ))
+    }
+  </ul>
+</BlogPost>
+
+<style>
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+</style>

@@ -1,11 +1,90 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "@/layouts/Layout.astro";
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Biraj">
+  <main>
+    <h1>biraj</h1>
+
+    <p>
+      founding engineer building realtime voice AI at
+      <a href="https://outspeed.com" target="_blank">Outspeed</a>.
+    </p>
+
+    <p>
+      i sometimes build things <a href="/from-scratch">from scratch</a> to understand how they work, write <a
+        href="/blogs">blogs</a
+      >, play chess (1900 rapid on
+      <a href="https://lichess.org/@/biraj21" target="_blank">lichess</a>), badminton, and read <a
+        href="https://www.goodreads.com/user/show/189947877-biraj"
+        target="_blank">books</a
+      >.
+    </p>
+
+    <nav>
+      <a href="/resume">resume</a>
+      <a href="/blogs">blog</a>
+      <a href="/from-scratch">projects</a>
+      <a href="https://github.com/biraj21" target="_blank">GitHub</a>
+      <a href="mailto:biraj.pub@gmail.com">email</a>
+    </nav>
+  </main>
 </Layout>
+
+<style>
+  body {
+    font-family: "Courier New", monospace;
+  }
+
+  main {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 3rem 1rem;
+    line-height: 1.4;
+    text-align: left;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    font-weight: normal;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+
+  nav {
+    margin-top: 2rem;
+    border-top: 1px solid var(--accent-color);
+    padding-top: 1rem;
+  }
+
+  nav a {
+    display: inline-block;
+    margin-right: 1rem;
+    margin-bottom: 0.5rem;
+    padding: 0.2rem 0.5rem;
+    border: 1px solid var(--accent-color);
+    text-decoration: none;
+    font-family: inherit;
+  }
+
+  /* Mobile */
+  @media (max-width: 600px) {
+    body {
+      padding: 2rem 1rem;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    nav a {
+      margin-right: 0.5rem;
+    }
+  }
+</style>

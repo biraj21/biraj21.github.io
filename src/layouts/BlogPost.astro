@@ -1,0 +1,147 @@
+---
+import Layout from "./Layout.astro";
+
+const { frontmatter } = Astro.props;
+const { title, pubDate, description, author } = frontmatter;
+
+// Format the date
+const formattedDate = pubDate
+  ? new Date(pubDate).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    })
+  : null;
+
+// SEO meta tags
+const fullTitle = `${title} | biraj's blog`;
+const seoDescription = description || "blog post by biraj";
+---
+
+<Layout title={fullTitle} description={seoDescription} author={author}>
+  <!-- Open Graph / Social Media -->
+  <meta slot="head" property="og:type" content="article" />
+  <meta slot="head" property="og:title" content={title} />
+  <meta slot="head" property="og:description" content={seoDescription} />
+  <meta slot="head" property="og:url" content={Astro.url} />
+
+  <!-- Twitter -->
+  <meta slot="head" name="twitter:card" content="summary" />
+  <meta slot="head" name="twitter:title" content={title} />
+  <meta slot="head" name="twitter:description" content={seoDescription} />
+
+  <main>
+    <header>
+      <nav>
+        <a href="/" class="home-link">← back to home</a>
+      </nav>
+    </header>
+
+    <article>
+      <header class="article-header">
+        <h1>{title}</h1>
+        {
+          (formattedDate || author) && (
+            <div class="article-meta">
+              {formattedDate && <time datetime={pubDate}>{formattedDate}</time>}
+              {formattedDate && author && <span class="separator">•</span>}
+              {author && <span class="author">by {author}</span>}
+            </div>
+          )
+        }
+        {description && <p class="description">{description}</p>}
+      </header>
+
+      <div class="content">
+        <slot />
+      </div>
+    </article>
+
+    <footer>
+      <p>
+        <a href="mailto:biraj.pub@gmail.com">biraj.pub@gmail.com</a>
+      </p>
+    </footer>
+  </main>
+</Layout>
+
+<style>
+  main {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  header nav {
+    margin-bottom: 2rem;
+  }
+
+  .home-link {
+    font-size: 0.9rem;
+  }
+
+  .article-header {
+    margin-bottom: 3rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid currentColor;
+  }
+
+  .article-header h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    font-weight: normal;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 1rem;
+  }
+
+  .separator {
+    opacity: 0.5;
+  }
+
+  .description {
+    font-size: 1rem;
+    opacity: 0.8;
+    font-style: italic;
+    margin: 0;
+  }
+
+  .content {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid currentColor;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+
+  /* Mobile */
+  @media (max-width: 600px) {
+    main {
+      padding: 1.5rem 1rem;
+    }
+
+    .article-header h1 {
+      font-size: 1.5rem;
+    }
+
+    .article-meta {
+      flex-wrap: wrap;
+    }
+
+    .content {
+      font-size: 0.95rem;
+    }
+  }
+</style>
