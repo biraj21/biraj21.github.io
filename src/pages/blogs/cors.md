@@ -9,13 +9,13 @@ author: Biraj
 okay see CORS is actually pretty simple... it stands for Cross-Origin Resource Sharing. it is a security feature
 implemented by web browsers
 
-let's say you're making a request from your page, `http://mysite.com` (using`fetch()` or`XMLHttpRequest`) to `http://othersite.com/data.json`. since these URLs are different, you're stepping into CORS territory.
+let's say you're making a request from your page, `http://mysite.com` (using `fetch()` or `XMLHttpRequest`) to `http://othersite.com/data.json`. since these URLs are different, you're stepping into CORS territory.
 
 now, the browser is like "hey, you're trying to access a resource from a _different origin_. i'm not gonna let you do that."
 
 `othersite.com`'s server will actually send the response, but since the origins (domain, scheme, or port) are different (_cross-origin_), the browser will restrict your site`http://mysite.com` from accessing the data.
 
-then what do you do in cases where your backend & frontend are hosted on different origins (let's say `http://api.myapp.com` &`http://myapp.com`)? your server should set the `Access-Control-Allow-Origin` response header.
+then what do you do in cases where your backend & frontend are hosted on different origins (let's say `http://api.myapp.com` & `http://myapp.com`)? your server should set the `Access-Control-Allow-Origin` response header.
 
 the value for`Access-Control-Allow-Origin` could be an origin/domain or an asterisk. browser looks at this header to decide whether it should permit the client (your frontend) to access the response data or not.
 
