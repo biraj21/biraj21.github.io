@@ -14,14 +14,16 @@
   </head>
   <body>
     <main>
-      <h1 class="no-print">welcome to Biraj's</h1>
-      <p class="no-print">
-        i know a little bit about software engineering. i play chess (1900 rapid on
-        <a href="https://lichess.org/@/biraj21" target="_blank">lichess</a>) and badminton. i sometimes read
-        <a href="https://www.goodreads.com/user/show/189947877-biraj" target="_blank">books</a>.
+      <h1>Biraj</h1>
+      <p>
+        i sometimes build things <a href="/from-scratch">from scratch</a> to understand how they work, write <a
+          href="/blogs">blogs</a
+        >, play chess (1900 rapid on
+        <a href="https://lichess.org/@/biraj21" target="_blank">lichess</a>), badminton, and read <a
+          href="https://www.goodreads.com/user/show/189947877-biraj"
+          target="_blank">books</a
+        >.
       </p>
-
-      <h1 class="print-only">Biraj</h1>
       <p>
         <a href="mailto:biraj.pub@gmail.com" class="print-only">biraj.pub@gmail.com</a>
       </p>
@@ -32,9 +34,9 @@
           <img src="/images/icons/github.svg" alt="GitHub" />
           <span class="print-only">github.com/biraj21</span>
         </a>
-        <a href="https://twitter.com/biraj21_" target="_blank">
+        <a href="https://x.com/biraj21_" target="_blank">
           <img src="/images/icons/twitter.svg" alt="Twitter" />
-          <span class="print-only">twitter.com/biraj21_</span>
+          <span class="print-only">x.com/biraj21_</span>
         </a>
         <a href="https://lichess.org/@/biraj21" target="_blank" class="no-print">
           <img src="/images/icons/lichess.svg" alt="Lichess" />
@@ -73,44 +75,43 @@
 
                 <details>
                   <summary>
-                    Realtime voice AI at
+                    realtime voice AI at
                     <a href="https://outspeed.com" target="_blank">Outspeed</a>.
                   </summary>
                   <ul>
                     <li>
-                      built
-                      <em>intelligent voice assistant with contextual awareness</em>
-                      using tool calling architecture that determines when to respond, skip turns, or end conversations based
-                      on user intent and conversation context, preventing interruptions during background conversations.
-                    </li>
-                    <li>
-                      built
-                      <em>voice AI interaction system by deploying open-source models</em>
-                      with streaming inference, voice activity detection and interrupts. it uses webrtc and a multi-threaded,
-                      event-driven architecture.
+                      developed WebRTC based
+                      <em>real-time voice AI agent system</em>. used message-driven Actor Model architecture for
+                      concurrent units (threads) in the code.
                     </li>
                     <li>
                       designed the system to be
-                      <em>compatible with OpenAI Realtime API specifications</em>, allowing users to integrate it using
-                      the same event structure and protocols as OpenAI's. also built
-                      <a href="https://github.com/outspeed-ai/voice-devtools" target="_blank">voice devtools</a>
-                      (<a href="https://dashboard.outspeed.com/" target="_blank">live here</a>) for debugging.
+                      <em>compatible with OpenAI Realtime API specifications</em>. also built the
+                      <a href="https://www.npmjs.com/package/@outspeed/react" target="_blank">React SDK</a> to simplify integration
+                      for developers.
                     </li>
                     <li>
-                      implemented realtime Voice Activity Detection (VAD) using
-                      <em>Silero VAD for audio stream processing</em>. it handles user interrupts. also implemented
-                      semantic VAD, where the model is less likely to interrupt the user during a speech-to-speech
-                      conversation.
+                      added default system tools to our voice AI infra that enable
+                      <em>agents to automatically determine when to skip turns or end conversations</em>.
                     </li>
                     <li>
-                      set up <em>log shipping pipeline</em> to send logs of our users' programs from our cloud to Loki on
-                      Grafana, then established a websocket connection from the backend to Loki and streamed the logs to
-                      the frontend using server-sent events.
+                      implemented
+                      <em>Voice Activity Detection system</em>
+                      using Silero VAD. also implemented semantic VAD, where the model is less likely to interrupt the user.
                     </li>
                     <li>
-                      created Terraform configurations to
-                      <em>deploy a Nomad cluster on AWS</em>, including EC2 instances with cloud-init scripts, S3
-                      buckets, Redis ElastiCache, ECR, IAM roles for EC2s, etc.
+                      built
+                      <em>real-time log monitoring infrastructure</em>
+                      that ships application logs from cloud to Grafana Loki and streams them to frontend via SSE (server-sent
+                      events).
+                    </li>
+                    <li>
+                      automated cloud infrastructure deployment by creating
+                      <em>Terraform configurations for Nomad cluster on AWS</em>, managing EC2 instances, S3 buckets,
+                      Redis ElastiCache, ECR, etc.
+                    </li>
+                    <li>
+                      deployed a <em>text-to-speech model to production</em>.
                     </li>
                   </ul>
                 </details>
@@ -145,36 +146,36 @@
                   </summary>
                   <ul>
                     <li>
-                      implemented <em>Retrieval Augmented Generation (RAG)</em> in Thinkstack: chunking user data, generating
-                      embeddings, and storing them in Pinecone (and later querying them with similarity search of course).
+                      implemented <em>Retrieval Augmented Generation (RAG)</em> to enable agent to answer questoins using
+                      users' knowledge base.
                     </li>
                     <li>
-                      built user <em>intent detection</em> system using GPT's function calling. given a set of intents, it
-                      identifies appropriate action to be taken, such as collecting user details, creating tickets, handing
-                      off to a human, etc.
+                      built user <em>intent detection</em> system using tool calls, that automatically identifies appropriate
+                      actions (collecting user details, creating tickets, human handoff) based on user queries, enabling
+                      more intelligent conversation routing.
                     </li>
                     <li>
-                      developed <em>Thinkstack's backend and frontend</em> (<a
-                        href="https://app.thinkstack.ai/login"
-                        target="_blank">app.thinkstack.ai</a
-                      >). worked with Node.js, GraphQL, Flask (Python), Redis, React.js (Next.js SSG), Tailwind CSS and
-                      AWS (Cognito, S3, API Gateway, CloudFormation etc).
+                      developed <em>Thinkstack's full-stack app</em>
+                      (<a href="https://app.thinkstack.ai/login" target="_blank">app.thinkstack.ai</a>). worked using
+                      Node.js, GraphQL, Flask (Python), Redis, Next.js (SSG), Tailwind CSS and AWS (Cognito, S3, API
+                      Gateway etc).
                     </li>
                     <li>
-                      created an event notification system using
-                      <em>pub/sub to send backend events</em> (e.g., website crawling completion) to the frontend, which
-                      uses a React context provider i wrote to consume these events and perform some actions.
+                      created a <em>real-time event notification system</em> using pub/sub to send backend events (like website
+                      crawling completion) to the frontend, which uses a React context provider i wrote to consume these
+                      events and trigger UI updates.
                     </li>
                     <li>
                       built
                       <em>sub-users, roles and permissions management</em> system for the app - both backend and frontend.
-                      same for human handoff flow.
                     </li>
                     <li>
                       created Zapier, Slack, WhatsApp, Facebook Messenger and Instagram integrations for Thinkstack.
                       also built its
-                      <em>API key management</em> system for authentication. users can use their API keys to authenticate
-                      themselves at Zapier's Thinkstack integration.
+                    </li>
+                    <li>
+                      built <em>API key management</em> system for authentication. users can use their API keys to authenticate
+                      themselves on Zapier to use Thinkstack integration.
                     </li>
                   </ul>
                 </details>
@@ -188,7 +189,7 @@
                     <time datetime="2023-08-31">aug 2023</time>
                   </small>
                 </h4>
-                <details>
+                <details class="no-print">
                   <summary>
                     migrated
                     <a href="https://www.pickcel.com/" target="_blank">Pickcel</a>'s backend codebase from node 12 to
@@ -197,8 +198,8 @@
                   <ul>
                     <li>
                       worked with TypeScript, Node.js, and Mongoose to update and
-                      <em>optimize existing REST APIs by adding concurrency</em>. set up integration testing using Jest,
-                      SuperTest and GitHub Actions.
+                      <em>optimize existing REST APIs by making some things concurrent</em>. set up integration testing
+                      CI using GitHub Actions.
                     </li>
                     <li>
                       <em>optimized Dockerfile for our on-premise setup</em> by properly reordering layers, reducing consecutive
@@ -228,7 +229,7 @@
             </li>
             <li>
               <strong>libraries and frameworks:</strong>
-              <span>React, Node.js, Express.js, Flask, FastAPI, GraphQL</span>
+              <span>React, Node.js, Express.js, FastAPI, GraphQL</span>
             </li>
             <li>
               <strong>tools and infra:</strong>
@@ -236,7 +237,7 @@
             </li>
             <li>
               <strong>database:</strong>
-              <span>MySQL/MariaDB, MongoDB, Redis, SQLite, Firestore</span>
+              <span>MongoDB, SQL, Redis, Firebase Firestore</span>
             </li>
           </ul>
         </section>
@@ -254,12 +255,37 @@
             <img src="/images/icons/typescript.svg" alt="TypeScript" />
           </h3>
           <p>
-            Obsy is an AI observability tool that provides insights into AI operations. created a Node.js SDK that
-            automatically instruments OpenAI completions and Pinecone queries. the dashboard shows API routes and their
-            AI operations flow, including timing and usage metrics for each stage. built this as a hackathon project in
-            15 hours.
+            Obsy is an AI observability tool that provides insights into AI operations. it has a Node.js SDK that
+            automatically instruments OpenAI, Pinecone and Vercel's AI SDK. the dashboard shows LLM trace, with timing
+            and usage metrics for each stage. built this as a hackathon project in 15 hours.
             <br />
             <a class="project__source-code" href="https://github.com/biraj21/obsy" target="_blank"></a>
+          </p>
+        </div>
+        <div class="project">
+          <h3>
+            tensor visualizer
+            <img src="/images/icons/javascript.svg" alt="JavaScript" />
+          </h3>
+          <p>
+            a tool that helps you visualize multi-dimensional arrays. uses HTML canvas for rendering the image. i wrote
+            this when i was trying to understand neural networks and tensors in pytorch.
+            <br />
+            <a class="project__source-code" href="https://github.com/biraj21/array-visualizer" target="_blank"></a>
+            <span class="separator-bar">|</span>
+            <a href="https://arrayvis.netlify.app/" target="_blank">try it</a>
+          </p>
+        </div>
+        <div class="project">
+          <h3>
+            focker: Linux containers
+            <img src="/images/icons/go.svg" alt="Go" />
+          </h3>
+          <p>
+            Focker is a toy container runtime written in Go. it is based on Ubuntu 22.04 rootfs. this was an attempt to
+            understand how Docker works internally.
+            <br />
+            <a class="project__source-code" href="https://github.com/biraj21/focker" target="_blank"></a>
           </p>
         </div>
         <div class="project">
@@ -278,20 +304,7 @@
               target="_blank"></a>
           </p>
         </div>
-        <div class="project">
-          <h3>
-            tensor visualizer
-            <img src="/images/icons/javascript.svg" alt="JavaScript" />
-          </h3>
-          <p>
-            a tool that helps you visualize multi-dimensional arrays. uses HTML canvas for rendering the image. i wrote
-            this when i was trying to understand neural networks.
-            <br />
-            <a class="project__source-code" href="https://github.com/biraj21/array-visualizer" target="_blank"></a>
-            <span class="separator-bar">|</span>
-            <a href="https://arrayvis.netlify.app/" target="_blank">try it</a>
-          </p>
-        </div>
+
         <div class="project">
           <h3>
             AI search
@@ -321,6 +334,7 @@
             <a class="project__source-code" href="https://github.com/biraj21/tcp-server" target="_blank"></a>
           </p>
         </div>
+
         <div class="project">
           <h3>
             gomon: nodemon for Go files
@@ -335,14 +349,17 @@
         </div>
         <div class="project">
           <h3>
-            focker: Linux containers
-            <img src="/images/icons/go.svg" alt="Go" />
+            brainfuck interpreter
+            <img src="/images/icons/c.svg" alt="C" />
           </h3>
           <p>
-            Focker is a toy container runtime written in Go. it is based on Ubuntu 22.04 rootfs. this was an attempt to
-            understand how Docker works internally.
+            a
+            <a href="https://en.wikipedia.org/wiki/Brainfuck" target="_blank">Brainfuck</a>
+            interpreter in C that combines repeated instructions, like
+            <code>+++++ +++++</code> into <code>&lbrace; '+' : 10 &rbrace;</code>, speeding up execution. it can also
+            transpile Brainfuck code to C.
             <br />
-            <a class="project__source-code" href="https://github.com/biraj21/focker" target="_blank"></a>
+            <a class="project__source-code" href="https://github.com/biraj21/brainfuck-interpreter" target="_blank"></a>
           </p>
         </div>
         <div class="project">
@@ -384,22 +401,6 @@
             article. learnt a lot about C and linux terminals during this.
             <br />
             <a class="project__source-code" href="https://github.com/biraj21/texterm" target="_blank"></a>
-          </p>
-        </div>
-
-        <div class="project">
-          <h3>
-            brainfuck interpreter
-            <img src="/images/icons/c.svg" alt="C" />
-          </h3>
-          <p>
-            a
-            <a href="https://en.wikipedia.org/wiki/Brainfuck" target="_blank">Brainfuck</a>
-            interpreter in C that combines repeated instructions, like
-            <code>+++++ +++++</code> into <code>&lbrace; '+' : 10 &rbrace;</code>, speeding up execution. it can also
-            transpile Brainfuck code to C.
-            <br />
-            <a class="project__source-code" href="https://github.com/biraj21/brainfuck-interpreter" target="_blank"></a>
           </p>
         </div>
         <div class="project">
