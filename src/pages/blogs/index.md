@@ -3,6 +3,7 @@ layout: ../../layouts/BlogPost.astro
 title: "welcome to Biraj's blogs"
 ---
 
+- [capitalize on your superficial desires](/blogs/superficial-motivator)
 - [learning by reading](/blogs/learning-by-reading)
 - [what is polling?](/blogs/what-is-polling)
 - [just loving what you do isn't enough](/blogs/just-loving-what-you-do-isnt-enough)
