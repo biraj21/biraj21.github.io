@@ -1,5 +1,14 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+
+// Get all blog posts
+const allPosts = await Astro.glob('./blogs/*.md');
+
+// Filter out drafts and sort by date
+const posts = allPosts
+  .filter(post => !post.url?.includes('.draft'))
+  .sort((a, b) => new Date(b.frontmatter.pubDate).getTime() - new Date(a.frontmatter.pubDate).getTime())
+  .slice(0, 3);
 ---
 
 <Layout title="Biraj">
@@ -20,6 +29,20 @@ import Layout from "@/layouts/Layout.astro";
         target="_blank">books</a
       >.
     </p>
+
+    {posts.length > 0 && (
+      <div class="latest-posts">
+        <h2>latest posts</h2>
+        <ul>
+          {posts.map(post => (
+            <li>
+              <a href={post.url}>{post.frontmatter.title}</a>
+              <span class="post-date">{new Date(post.frontmatter.pubDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
 
     <nav>
       <a href="/resume">resume</a>
@@ -55,6 +78,37 @@ import Layout from "@/layouts/Layout.astro";
   p {
     font-size: 0.95rem;
     margin-bottom: 1rem;
+  }
+
+  .latest-posts {
+    margin: 2rem 0;
+  }
+
+  .latest-posts h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: normal;
+    border-bottom: 1px solid var(--accent-color);
+    padding-bottom: 0.3rem;
+  }
+
+  .latest-posts ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .latest-posts li {
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+  }
+
+  .latest-posts .post-date {
+    color: #666;
+    font-size: 0.85rem;
+    white-space: nowrap;
   }
 
   nav {
