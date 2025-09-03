@@ -1,8 +1,7 @@
 ---
 layout: ../../layouts/BlogPost.astro
 title: "what is polling?"
-pubDate: 2022-07-01
-description: "what is polling tldr"
+pubDate: 2024-11-20
 author: "Biraj"
 ---
 

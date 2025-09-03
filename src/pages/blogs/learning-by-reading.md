@@ -2,7 +2,6 @@
 layout: ../../layouts/BlogPost.astro
 title: "learning by reading"
 pubDate: 2024-11-23
-description: "i learnt the most when i stopped thinking i needed a youtube video to learn everything"
 author: "Biraj"
 ---
 

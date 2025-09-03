@@ -2,7 +2,6 @@
 layout: ../../layouts/BlogPost.astro
 title: just loving what you do isn't enough
 pubDate: 2025-01-27
-description: you need a mission
 author: Biraj
 ---
 
