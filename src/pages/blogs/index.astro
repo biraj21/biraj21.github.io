@@ -1,0 +1,147 @@
+---
+import Layout from "@/layouts/Layout.astro";
+
+// Get all local blog posts
+const localPosts = await Astro.glob('./*.md');
+
+// External blog posts
+const externalPosts = [
+  {
+    title: "Introduction to NumPy",
+    url: "https://dev.to/biraj21/introduction-to-numpy-31md",
+    pubDate: "Jan 31, 2024",
+  },
+  {
+    title: "Understand JavaScript Array Methods By Implementing Them",
+    url: "https://dev.to/biraj21/javascript-array-methods-understand-by-implementing-54g3",
+    pubDate: "Jan 21, 2023",
+  },
+  {
+    title: "What are Pointers in C? (shallow explanation)",
+    url: "https://biraj21.medium.com/what-are-pointers-in-c-d21efd5e41dc",
+    pubDate: "May 3, 2021",
+  },
+  {
+    title: "What are Radians?",
+    url: "https://biraj21.medium.com/what-are-radians-657a3e6ea913",
+    pubDate: "Dec 1, 2020",
+  },
+  {
+    title: "What are number systems?",
+    url: "https://biraj21.medium.com/what-are-number-systems-2cd7a5df9220",
+    pubDate: "Nov 21, 2020",
+  },
+  {
+    title: "What is speed?",
+    url: "https://biraj21.medium.com/what-is-speed-d866c91d24cc",
+    pubDate: "Nov 20, 2020",
+  }
+];
+
+// Combine and sort all posts
+const allPosts = [
+  // Transform local posts to match external post format
+  ...localPosts
+    .filter(post => !post.url?.includes('.draft'))
+    .map(post => ({
+      title: post.frontmatter.title,
+      url: post.url,
+      pubDate: post.frontmatter.pubDate,
+      isExternal: false
+    })),
+  // Add isExternal flag to external posts
+  ...externalPosts.map(post => ({ ...post, isExternal: true }))
+].sort((a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime());
+---
+
+<Layout title="biraj's blogs">
+  <main>
+    <h1>welcome to biraj's blogs</h1>
+
+    <section class="posts">
+      {allPosts.map(post => (
+        <div class="post">
+          <div class="post-title">
+            <a href={post.url} target={post.isExternal ? "_blank" : undefined}>
+              {post.title}
+            </a>
+            {post.isExternal && <span class="external-indicator">↗</span>}
+          </div>
+          <time datetime={post.pubDate}>
+            {new Date(post.pubDate).toLocaleDateString('en-US', { 
+              year: 'numeric',
+              month: 'short',
+              day: 'numeric'
+            })}
+          </time>
+        </div>
+      ))}
+    </section>
+  </main>
+</Layout>
+
+<style>
+  main {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    font-weight: normal;
+    border-bottom: 1px solid var(--accent-color);
+    padding-bottom: 0.5rem;
+  }
+
+  .posts {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .post {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+  }
+
+  .post-title {
+    display: flex;
+    align-items: baseline;
+    gap: 0.3rem;
+  }
+
+  .external-indicator {
+    color: #666;
+    font-size: 0.8rem;
+  }
+
+  time {
+    color: #666;
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+
+  /* Mobile */
+  @media (max-width: 600px) {
+    main {
+      padding: 1.5rem 1rem;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    .post {
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    time {
+      font-size: 0.8rem;
+    }
+  }
+</style>
