@@ -2,7 +2,8 @@
 import Layout from "@/layouts/Layout.astro";
 
 // Get all local blog posts
-const localPosts = await Astro.glob('./*.md');
+const localPosts = Object.values(import.meta.glob('./*.md', { eager: true }));
+
 
 // External blog posts
 const externalPosts = [

@@ -2,7 +2,7 @@
 import Layout from "@/layouts/Layout.astro";
 
 // Get all blog posts
-const allPosts = await Astro.glob('./blogs/*.md');
+const allPosts = Object.values(import.meta.glob('./blogs/*.md', { eager: true }));
 
 // Filter out drafts and sort by date
 const posts = allPosts
