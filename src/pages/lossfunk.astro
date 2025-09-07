@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>biraj @ lossfunk</title>
+  </head>
+  <body>
+    <main>
+      <h1>hey Paras! 👋</h1>
+      <p>
+        i've applied for the Lossfunk residency and wanted to reach out directly. i'm currently a founding engineer at
+        Outspeed (realtime voice AI infra startup, check
+        <a href="https://outspeed.com" target="_blank">outspeed.com</a>).
+        <a href="https://biraj21.github.io/resume" target="_blank">[resume]</a>
+      </p>
+
+      <h2>why i'm excited about Lossfunk?</h2>
+      <p>
+        i'm deeply curious, especially about model serving and inference, and i love understanding how things work
+        internally. <a href="https://biraj21.github.io/from-scratch" target="_blank">[here's the proof]</a>. i also
+        wanna be among people where i'm the dumbest one.
+      </p>
+
+      <h2>my 'from scratch' projects (AI related)</h2>
+      <ul id="projects">
+        <li>
+          <h3>model serving from scratch</h3>
+          <p>
+            a toy model server built from scratch using FastAPI. has request queueing, batched inference, independent
+            sequence completion, and token streaming via SSE. also supports batched inference for
+            whisper-large-v3-turbo. built this to understand how systems like vLLM work internally (i'm not even close).
+            next steps: dynamic batching and KV caching.
+            <strong><u>this is what i wanna spend my time on at Lossfunk</u></strong>
+
+            <br />
+            <a href="https://github.com/biraj21/llm-server-from-scratch" target="_blank">[source code]</a>
+          </p>
+        </li>
+        <li>
+          <h3>numpy from scratch in Go</h3>
+          <p>
+            i was implementing Neural Networks from scratch in Go and as a byproduct of it, i created my own version of
+            NumPy for tensor operations like +, -, *, /, matrix multiplication, transpose etc. it also supports
+            <a href="https://numpy.org/doc/stable/user/basics.broadcasting.html" target="_blank">broadcasting</a>.
+
+            <br />
+            <a href="https://github.com/biraj21/neural-networks-from-scratch" target="_blank">[source code]</a>
+          </p>
+        </li>
+        <li>
+          <h3>tensor visualizer</h3>
+          <p>
+            a tool that helps you visualize multi-dimensional arrays. uses HTML canvas for rendering the image. i wrote
+            this when i was trying to understand neural networks and tensors in pytorch.
+            <strong>it's the most creative and original project i've ever built.</strong>
+
+            <br />
+            <a href="https://github.com/biraj21/tensor-visualizer" target="_blank">[source code]</a>
+            <span>|</span>
+            <a href="https://arrayvis.netlify.app/" target="_blank">[live demo]</a>
+          </p>
+        </li>
+        <li>
+          <h3>ai answer engine</h3>
+          <p>
+            built a quick & fun answer engine inspired by perplexity & scira because why not. used qwen3-32b hosted on
+            groq & used google's custom search JSON api for search results. it shows sources and model's reasoning in
+            the UI, while citing the sources in the answer.
+
+            <br />
+            <a href="https://github.com/biraj21/ai-search" target="_blank">[source code]</a>
+          </p>
+        </li>
+      </ul>
+    </main>
+  </body>
+</html>
+
+
+
+<style>
+  body {
+    margin: 0;
+    padding: 24px;
+    font-family: sans-serif;
+  }
+
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  ul#projects {
+    padding: 0 16px;
+  }
+
+  ul#projects a {
+    display: inline-block;
+    margin-top: 6px;
+  }
+</style>
