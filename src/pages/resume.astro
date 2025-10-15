@@ -249,6 +249,41 @@
         <h2>projects</h2>
         <div class="project">
           <h3>
+            DotDB: in-browser vector database
+            <img src="/images/icons/typescript.svg" alt="TypeScript" />
+          </h3>
+          <p>
+            a lightweight vector database that runs entirely in the browser. supports cosine similarity search, persistent storage
+            via IndexedDB, and batch operations. uses transformers.js with <a
+              href="https://huggingface.co/BAAI/bge-small-en-v1.5"
+              target="_blank">bge-small-en-v1.5</a
+            > for generating embeddings. built to understand how vector databases work under the hood - implements brute-force
+            k-NN search with Float32Array for memory efficiency.
+            <br />
+            <a
+              class="project__source-code"
+              href="https://github.com/biraj21/vector-db-from-scratch-in-browser"
+              target="_blank"></a>
+            <span class="separator-bar">|</span>
+            <a href="https://dotdb.summerlabs.xyz/" target="_blank">try it</a>
+          </p>
+        </div>
+        <div class="project">
+          <h3>
+            LLM serving engine from scratch
+            <img src="/images/icons/python.svg" alt="Python" />
+          </h3>
+          <p>
+            a toy LLM serving engine built from scratch with batched inference and token streaming. implements
+            auto-regressive generation loop, request queueing, and independent sequence completion. supports both
+            streaming and non-streaming responses via FastAPI. built this to understand model serving. work in progress.
+            <br />
+            <a class="project__source-code" href="https://github.com/biraj21/llm-server-from-scratch" target="_blank"
+            ></a>
+          </p>
+        </div>
+        <div class="project">
+          <h3>
             Obsy: AI observability platform
             <img src="/images/icons/nextjs.svg" alt="Next.js" />
             <img src="/images/icons/nodejs.svg" alt="Node.js" />
@@ -260,21 +295,6 @@
             and usage metrics for each stage. built this as a hackathon project in 15 hours.
             <br />
             <a class="project__source-code" href="https://github.com/biraj21/obsy" target="_blank"></a>
-          </p>
-        </div>
-        <div class="project">
-          <h3>
-            Model serving engine from scratch
-            <img src="/images/icons/python.svg" alt="Python" />
-          </h3>
-          <p>
-            a toy LLM serving engine built from scratch with batched inference and token streaming. implements
-            auto-regressive generation loop, request queueing, and independent sequence completion. supports both
-            streaming and non-streaming responses via FastAPI. built this to understand how systems like vLLM work
-            internally. work in progress.
-            <br />
-            <a class="project__source-code" href="https://github.com/biraj21/llm-server-from-scratch" target="_blank"
-            ></a>
           </p>
         </div>
         <div class="project">
