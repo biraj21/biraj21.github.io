@@ -2,11 +2,11 @@
 import Layout from "@/layouts/Layout.astro";
 
 // Get all blog posts
-const allPosts = Object.values(import.meta.glob('./blogs/*.md', { eager: true }));
+const allPosts = Object.values(import.meta.glob("./blogs/*.md", { eager: true }));
 
 // Filter out drafts and sort by date
 const posts = allPosts
-  .filter(post => !post.url?.includes('.draft'))
+  .filter((post) => !post.url?.includes(".draft"))
   .sort((a, b) => new Date(b.frontmatter.pubDate).getTime() - new Date(a.frontmatter.pubDate).getTime())
   .slice(0, 3);
 ---
@@ -16,39 +16,46 @@ const posts = allPosts
     <h1>biraj - wannabe founder</h1>
 
     <p>
-      founding engineer building realtime voice AI at
-      <a href="https://outspeed.com" target="_blank">Outspeed</a>.
+      building
+      <a href="https://www.hangingpiece.com" target="_blank">Hanging Piece</a>, an AI chess coach.
     </p>
 
     <p>
       i sometimes build things <a href="/from-scratch">from scratch</a> to understand how they work, write <a
         href="/blogs">blogs</a
       >, play chess (1900 rapid on
-      <a href="https://lichess.org/@/biraj21" target="_blank">lichess</a>), badminton, and read <a
-        href="https://www.goodreads.com/user/show/189947877-biraj"
-        target="_blank">books</a
-      >.
+      <a href="https://lichess.org/@/biraj21" target="_blank">lichess</a>, 1700 rapid
+      <a href="https://www.chess.com/member/biraj21" target="_blank">chess.com</a>
+      ), badminton, and read <a href="https://www.goodreads.com/user/show/189947877-biraj" target="_blank">books</a>.
     </p>
 
-    {posts.length > 0 && (
-      <div class="latest-posts">
-        <h2>latest posts</h2>
-        <ul>
-          {posts.map(post => (
-            <li>
-              <a href={post.url}>{post.frontmatter.title}</a>
-              <span class="post-date">{new Date(post.frontmatter.pubDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-    )}
+    {
+      posts.length > 0 && (
+        <div class="latest-posts">
+          <h2>latest posts</h2>
+          <ul>
+            {posts.map((post) => (
+              <li>
+                <a href={post.url}>{post.frontmatter.title}</a>
+                <span class="post-date">
+                  {new Date(post.frontmatter.pubDate).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                  })}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )
+    }
 
     <nav>
       <a href="/resume">resume</a>
       <a href="/blogs">blog</a>
       <a href="/from-scratch">projects</a>
-      <a href="https://github.com/biraj21" target="_blank">GitHub</a>
+      <a href="https://github.com/biraj21" target="_blank">github</a>
       <a href="mailto:biraj.pub@gmail.com">email</a>
     </nav>
   </main>
