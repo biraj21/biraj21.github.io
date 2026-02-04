@@ -133,7 +133,9 @@
                       Redis ElastiCache, ECR, etc.
                     </li>
                     <li>
-                      deployed a <em>text-to-speech model to production</em>.
+                      used <em>ClickHouse</em> for high-throughput analytics (~<em>3M+ events/day</em>), ingesting
+                      events via async inserts for convenient consumption, and using materialized views for fast
+                      aggregated queries.
                     </li>
                   </ul>
                 </details>
@@ -163,41 +165,32 @@
                 <details>
                   <summary>
                     built
-                    <a href="https://thinkstack.ai" target="_blank">thinkstack.ai</a>, a platform where businesses can
-                    create AI chatbots to automate customer support.
+                    <a href="https://thinkstack.ai" target="_blank">thinkstack.ai</a>, a multi-tenant B2B AI support
+                    platform where businesses can create and deploy production-ready chatbots powered by RAG.
                   </summary>
                   <ul>
                     <li>
-                      implemented <em>Retrieval Augmented Generation (RAG)</em> to enable agent to answer questoins using
-                      users' knowledge base.
+                      implemented <em>Retrieval Augmented Generation (RAG)</em> using Pinecone to enable agent to answer questions
+                      using users' knowledge base.
                     </li>
                     <li>
-                      built user <em>intent detection</em> system using tool calls, that automatically identifies appropriate
-                      actions (collecting user details, creating tickets, human handoff) based on user queries, enabling more
-                      intelligent conversation routing.
+                      built a user <em>intent detection using tool-calling</em> to route conversations automatically (lead
+                      capture, ticket creation, human handoff).
                     </li>
                     <li>
-                      developed <em>Thinkstack's full-stack app</em>
-                      (<a href="https://app.thinkstack.ai/login" target="_blank">app.thinkstack.ai</a>). worked using
-                      Node.js, GraphQL, Flask (Python), Redis, Next.js (SSG), Tailwind CSS and AWS (Cognito, S3, API
-                      Gateway etc).
+                      shipped the <em>full-stack Thinkstack product</em>: GraphQL backend, Flask-based AI services, and
+                      Redis-backed caching + message queuing, deployed on AWS (Cognito, S3, API Gateway)
                     </li>
                     <li>
-                      created a <em>real-time event notification system</em> using pub/sub to send backend events (like website
-                      crawling completion) to the frontend, which uses a React context provider i wrote to consume these events
-                      and trigger UI updates.
+                      designed a <em>real-time event notification system</em> (pub/sub) to send backend events (eg. website
+                      crawling completion) to the dashboard for reactive UI state changes.
                     </li>
                     <li>
-                      built
-                      <em>sub-users, roles and permissions management</em> system for the app - both backend and frontend.
+                      built <em>multi-tenant access control</em> including sub-users, RBAC roles/permissions, and API key
+                      authentication for secure external integrations.
                     </li>
                     <li>
-                      created Zapier, Slack, WhatsApp, Facebook Messenger and Instagram integrations for Thinkstack.
-                      also built its
-                    </li>
-                    <li>
-                      built <em>API key management</em> system for authentication. users can use their API keys to authenticate
-                      themselves on Zapier to use Thinkstack integration.
+                      created <em>Zapier, Slack, WhatsApp, Facebook Messenger and Instagram</em> integrations for Thinkstack.
                     </li>
                   </ul>
                 </details>
@@ -254,12 +247,16 @@
               <span>React, Node.js, Express.js, FastAPI, GraphQL</span>
             </li>
             <li>
-              <strong>tools and infra:</strong>
-              <span>Docker, AWS, Terraform, Firebase, Git, Linux, GitHub Actions</span>
+              <strong>infra & tooling:</strong>
+              <span>Docker, AWS, Terraform, GitHub Actions, HashiCorp Nomad</span>
             </li>
             <li>
-              <strong>database:</strong>
-              <span>MongoDB, SQL, Redis, Firebase Firestore</span>
+              <strong>database & analytics:</strong>
+              <span>MongoDB, MySQL, Redis, Firebase Firestore, ClickHouse</span>
+            </li>
+            <li>
+              <strong>auth & payments:</strong>
+              <span>Better Auth, Supabase, Firebase, OAuth, Stripe, Razorpay</span>
             </li>
           </ul>
         </section>
@@ -271,6 +268,20 @@
         <h2>projects</h2>
         <div class="project">
           <h3>
+            LLM serving engine from scratch
+            <img src="/images/icons/python.svg" alt="Python" />
+          </h3>
+          <p>
+            a toy LLM server built from scratch with batched inference, auto-regressive generation loop for token
+            streaming, request queueing, and independent sequence completion. supports both streaming and non-streaming
+            responses via FastAPI. also includes Whisper for STT.
+            <br />
+            <a class="project__source-code" href="https://github.com/biraj21/llm-server-from-scratch" target="_blank"
+            ></a>
+          </p>
+        </div>
+        <div class="project">
+          <h3>
             DotDB: in-browser vector database
             <img src="/images/icons/typescript.svg" alt="TypeScript" />
           </h3>
@@ -279,8 +290,7 @@
             persistent storage via IndexedDB, and batch operations. uses transformers.js with <a
               href="https://huggingface.co/BAAI/bge-small-en-v1.5"
               target="_blank">bge-small-en-v1.5</a
-            > for generating embeddings. built to understand how vector databases work under the hood - implements brute-force
-            k-NN search with Float32Array for memory efficiency.
+            > for generating embeddings. implements brute-force k-NN search with Float32Array for memory efficiency.
             <br />
             <a
               class="project__source-code"
@@ -292,16 +302,15 @@
         </div>
         <div class="project">
           <h3>
-            LLM serving engine from scratch
-            <img src="/images/icons/python.svg" alt="Python" />
+            Focker: Linux containers
+            <img src="/images/icons/go.svg" alt="Go" />
           </h3>
           <p>
-            a toy LLM serving engine built from scratch with batched inference and token streaming. implements
-            auto-regressive generation loop, request queueing, and independent sequence completion. supports both
-            streaming and non-streaming responses via FastAPI. built this to understand model serving. work in progress.
+            Focker is a toy container runtime written in Go to understand Docker internals. implements Linux namespace
+            isolation (PID, mount, UTS), runs processes inside an extracted Ubuntu 22.04 root filesystem, and supports
+            bind mounts for sharing host directories with containers.
             <br />
-            <a class="project__source-code" href="https://github.com/biraj21/llm-server-from-scratch" target="_blank"
-            ></a>
+            <a class="project__source-code" href="https://github.com/biraj21/focker" target="_blank"></a>
           </p>
         </div>
         <div class="project">
@@ -310,11 +319,11 @@
             <img src="/images/icons/typescript.svg" alt="TypeScript" />
           </h3>
           <p>
-            a Chrome extension that brings AI assistants (ChatGPT, Claude, Gemini, Perplexity) into a sidebar. highlight
-            any text and press Cmd/Ctrl+Shift+E to get instant explanations without tab-switching. <strong
-              >hit 50+ users and 16+ five-star ratings within days of launch</strong
-            >. built it because existing extensions charged money just to wrap AI APIs in a new UI, which seemed
-            pointless when users already pay for ChatGPT/Claude/Gemini subscriptions.
+            a Chrome extension that brings AI assistants into a sidebar. highlight any text and press shortcut to get
+            instant explanations without tab-switching. <strong
+              >hit 100+ users and 16+ five-star ratings within days of launch</strong
+            >. built it because existing extensions charged for wrapping AI APIs in a new UI, which seemed redundant
+            when users already pay for ChatGPT/Claude/Gemini subscriptions.
             <br />
             <a class="project__source-code" href="https://github.com/biraj21/ask-my-ai" target="_blank"></a>
             <span class="separator-bar">|</span>
@@ -322,47 +331,6 @@
               href="https://chromewebstore.google.com/detail/ask-my-ai-free-chatgpt-cl/clfbemdacihopdopaanknckjkgbpando"
               target="_blank">chrome web store</a
             >
-          </p>
-        </div>
-        <div class="project">
-          <h3>
-            Obsy: AI observability platform
-            <img src="/images/icons/nextjs.svg" alt="Next.js" />
-            <img src="/images/icons/nodejs.svg" alt="Node.js" />
-            <img src="/images/icons/typescript.svg" alt="TypeScript" />
-          </h3>
-          <p>
-            Obsy is an AI observability tool that provides insights into AI operations. it has a Node.js SDK that
-            automatically instruments OpenAI, Pinecone and Vercel's AI SDK. the dashboard shows LLM trace, with timing
-            and usage metrics for each stage. built this as a hackathon project in 15 hours.
-            <br />
-            <a class="project__source-code" href="https://github.com/biraj21/obsy" target="_blank"></a>
-          </p>
-        </div>
-        <div class="project">
-          <h3>
-            tensor visualizer
-            <img src="/images/icons/javascript.svg" alt="JavaScript" />
-          </h3>
-          <p>
-            a tool that helps you visualize multi-dimensional arrays. uses HTML canvas for rendering the image. i wrote
-            this when i was trying to understand neural networks and tensors in pytorch.
-            <br />
-            <a class="project__source-code" href="https://github.com/biraj21/array-visualizer" target="_blank"></a>
-            <span class="separator-bar">|</span>
-            <a href="https://arrayvis.netlify.app/" target="_blank">try it</a>
-          </p>
-        </div>
-        <div class="project">
-          <h3>
-            focker: Linux containers
-            <img src="/images/icons/go.svg" alt="Go" />
-          </h3>
-          <p>
-            Focker is a toy container runtime written in Go. it is based on Ubuntu 22.04 rootfs. this was an attempt to
-            understand how Docker works internally.
-            <br />
-            <a class="project__source-code" href="https://github.com/biraj21/focker" target="_blank"></a>
           </p>
         </div>
         <div class="project">
@@ -381,23 +349,6 @@
               target="_blank"></a>
           </p>
         </div>
-
-        <div class="project">
-          <h3>
-            AI search
-            <img src="/images/icons/javascript.svg" alt="C" />
-          </h3>
-          <p>
-            an AI search tool (like
-            <a href="https://perplexity.ai" target="_blank">Perplexity</a>) that pulls data from
-            <a href="https://developers.google.com/custom-search/v1/overview" target="_blank"
-              >Google Custom Search JSON API</a
-            >
-            and uses Llama 3 to generate answer with citations.
-            <br />
-            <a class="project__source-code" href="https://github.com/biraj21/ai-search" target="_blank"></a>
-          </p>
-        </div>
         <div class="project">
           <h3>
             TCP server
@@ -411,86 +362,44 @@
             <a class="project__source-code" href="https://github.com/biraj21/tcp-server" target="_blank"></a>
           </p>
         </div>
-
         <div class="project">
           <h3>
-            gomon: nodemon for Go files
+            Obsy: AI observability platform
+            <img src="/images/icons/nextjs.svg" alt="Next.js" />
+            <img src="/images/icons/nodejs.svg" alt="Node.js" />
+            <img src="/images/icons/typescript.svg" alt="TypeScript" />
+          </h3>
+          <p>
+            Obsy is an AI observability tool that provides insights into AI operations. it has a Node.js SDK that
+            automatically instruments OpenAI, Pinecone and Vercel's AI SDK. the dashboard shows LLM trace, with timing
+            and usage metrics for each stage. built this in a hackathon.
+            <br />
+            <a class="project__source-code" href="https://github.com/biraj21/obsy" target="_blank"></a>
+          </p>
+        </div>
+        <div class="project">
+          <h3>
+            Gomon: nodemon for Go files
             <img src="/images/icons/go.svg" alt="Go" />
           </h3>
           <p>
-            a CLI took to run Go programs in watch mode. to watch for changes, it uses <code>kqueue()</code> system call on
+            a CLI tool to run Go programs in watch mode. to watch for changes, it uses <code>kqueue()</code> system call on
             macOS and <code>inotify</code> on Linux. no 3rd-party dependencies.
             <br />
             <a class="project__source-code" href="https://github.com/biraj21/gomon" target="_blank"></a>
           </p>
         </div>
         <div class="project">
-          <h3>
-            brainfuck interpreter
-            <img src="/images/icons/c.svg" alt="C" />
-          </h3>
+          <h3>Other</h3>
           <p>
-            a
-            <a href="https://en.wikipedia.org/wiki/Brainfuck" target="_blank">Brainfuck</a>
-            interpreter in C that combines repeated instructions, like
-            <code>+++++ +++++</code> into <code>&lbrace; '+' : 10 &rbrace;</code>, speeding up execution. it can also
-            transpile Brainfuck code to C.
-            <br />
-            <a class="project__source-code" href="https://github.com/biraj21/brainfuck-interpreter" target="_blank"></a>
-          </p>
-        </div>
-        <div class="project">
-          <h3>
-            web wanderer
-            <img src="/images/icons/python.svg" alt="Python" />
-          </h3>
-          <p>
-            a multi-threaded web crawler written in Python. uses
-            <code>concurrent.futures.ThreadPoolExecutor</code> and
-            <a href="https://playwright.dev/" target="_blank">Playwright</a> to crawl and download web pages. it handles dynamically
-            rendered websites, making it capable of extracting content from sites written in React, Vue, etc.
-            <br />
-            <a class="project__source-code" href="https://github.com/biraj21/web-wanderer" target="_blank"></a>
-          </p>
-        </div>
-        <div class="project">
-          <h3>
-            JSON parser
-            <img src="/images/icons/go.svg" alt="Go" />
-          </h3>
-          <p>
-            a JSON parser written in Go from scratch. prints error message with line and column number.
-            <a href="https://github.com/eatonphil" target="_blank">Phil Eaton</a>'s
-            <a href="https://notes.eatonphil.com/writing-a-simple-json-parser.html" target="_blank">blog post</a>
-            helped me write the lexer and parser. it was fun.
-            <br />
-            <a class="project__source-code" href="https://github.com/biraj21/json-parser" target="_blank"></a>
-          </p>
-        </div>
-        <div class="project">
-          <h3>
-            texterm
-            <img src="/images/icons/c.svg" alt="C" />
-          </h3>
-          <p>
-            a minimal, nano-like text editor written in C from scratch. i followed
-            <a href="https://viewsourcecode.org/snaptoken/kilo/" target="_blank">Build Your Own Text Editor</a>
-            article. learnt a lot about C and linux terminals during this.
-            <br />
-            <a class="project__source-code" href="https://github.com/biraj21/texterm" target="_blank"></a>
-          </p>
-        </div>
-        <div class="project">
-          <h3>
-            findREp
-            <img src="/images/icons/python.svg" alt="Python" />
-          </h3>
-          <p>
-            a GUI tool written with Tkinter in Python to find and replace all the matches of a regular expression in
-            files and folders (recursively). i wrote this because i wasn't aware of VS Code's search functionality at
-            the time.
-            <br />
-            <a class="project__source-code" href="https://github.com/biraj21/findrep" target="_blank"></a>
+            <a href="https://github.com/biraj21/brainfuck-interpreter" target="_blank">brainfuck interpreter</a> |
+            <a href="https://github.com/biraj21/json-parser" target="_blank">JSON parser</a> |
+            <a href="https://github.com/biraj21/texterm" target="_blank">nano-like CLI text editor</a> |
+            <a href="https://github.com/biraj21/ai-search" target="_blank">AI search</a> |
+            <a href="https://github.com/biraj21/web-wanderer" target="_blank">web crawler</a> |
+            <a href="https://github.com/biraj21/array-visualizer" target="_blank">tensor visualizer</a>
+            (<a href="https://arrayvis.netlify.app/" target="_blank">demo</a>) |
+            <a href="https://github.com/biraj21/findrep" target="_blank">findREp</a>
           </p>
         </div>
       </section>
@@ -516,7 +425,7 @@
           </li>
           <li>
             <a href="https://biraj21.medium.com/what-are-pointers-in-c-d21efd5e41dc" target="_blank"
-              >What are Pointers in C? (shallow explanation)</a
+              >What are Pointers in C?</a
             >
           </li>
         </ul>
@@ -697,6 +606,24 @@
   }
 
   @media print {
+    .print-only {
+      display: block;
+    }
+
+    .no-print {
+      display: none !important;
+    }
+
+    main {
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    main > h1 {
+      margin-top: 0;
+      padding-top: 0;
+    }
+
     #socials a {
       display: inline-flex;
       align-items: center;
@@ -704,16 +631,6 @@
     #socials a img {
       height: 16px;
       margin-right: 4px;
-    }
-  }
-
-  @media print {
-    .print-only {
-      display: block;
-    }
-
-    .no-print {
-      display: none !important;
     }
   }
 </style>
