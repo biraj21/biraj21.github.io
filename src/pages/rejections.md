@@ -21,3 +21,6 @@ author: Biraj
 
 5. 17 Mar 2026 — The Bridge by Entrepreneur First
    - received rejection email in under 10 hours
+
+
+> i'm exceptional tho. i just need to prove it somehow.
