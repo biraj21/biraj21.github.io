@@ -13,3 +13,9 @@ body {
 code {
   font-family: "Fira Code", monospace !important;
 }
+
+/* blog nested list */
+.content li > ul,
+.content li > ol {
+  padding-inline-start: 1rem;
+}
