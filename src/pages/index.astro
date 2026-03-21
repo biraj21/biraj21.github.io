@@ -1,159 +1,227 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 
-// Get all blog posts
+const introLinks = {
+  projects: "/from-scratch",
+  blogs: "/blogs",
+  books: "https://www.goodreads.com/user/show/189947877-biraj",
+};
+
+const exploringItems = [
+  {
+    href: "https://github.com/biraj21/ex-coding-agent",
+    label: "elixir & agent harnesses",
+    external: true,
+  },
+  { label: "real-time voice AI infra" },
+  { label: "multi-agent systems" },
+];
+
+const navLinks = [
+  { href: "https://x.com/biraj21_", label: "X", external: true },
+  { href: "/resume", label: "resume" },
+  { href: "/blogs", label: "blog" },
+  { href: "/from-scratch", label: "projects" },
+  { href: "https://github.com/biraj21", label: "github", external: true },
+  { href: "mailto:biraj.pub@gmail.com", label: "email" },
+];
+
 const allPosts = Object.values(import.meta.glob("./blogs/*.md", { eager: true }));
 
-// Filter out drafts and sort by date
 const posts = allPosts
   .filter((post) => !post.url?.includes(".draft"))
   .sort((a, b) => new Date(b.frontmatter.pubDate).getTime() - new Date(a.frontmatter.pubDate).getTime())
-  .slice(0, 3);
+  .slice(0, 3)
+  .map((post) => ({
+    ...post,
+    formattedDate: new Date(post.frontmatter.pubDate).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    }),
+  }));
 ---
 
 <Layout title="Biraj">
-  <main>
+  <main class="home">
     <h1>biraj - wannabe founder</h1>
 
-    <p>
-      i sometimes build things <a href="/from-scratch">from scratch</a> to understand how they work, write <a
-        href="/blogs">blogs</a
-      >, play chess (1900 rapid on
-      <a href="https://lichess.org/@/biraj21" target="_blank">lichess</a>, 1700 rapid
-      <a href="https://www.chess.com/member/biraj21" target="_blank">chess.com</a>), play badminton, and read <a
-        href="https://www.goodreads.com/user/show/189947877-biraj"
-        target="_blank">books</a
-      >.
-    </p>
+    <section class="intro">
+      <p>
+        i sometimes build things <a href={introLinks.projects}>from scratch</a> to understand how they work, write <a
+          href={introLinks.blogs}>blogs</a
+        >, and read <a href={introLinks.books} target="_blank" rel="noreferrer">books</a>.
+      </p>
 
-    <p>fucking around at the moment, hoping for the divine find out.</p>
+      <p>
+        i also play chess (1700 rapid on <a href="https://www.chess.com/member/biraj21" target="_blank" rel="noreferrer"
+          >chess.com</a
+        >), play badminton, and spend a fair amount of time fucking around hoping for the divine find out.
+      </p>
 
-    <p>
-      <em
-        >currently exploring <a href="https://github.com/biraj21/ex-coding-agent" target="_blank"
-          >elixir & coding agent harness</a
-        ></em
-      >.
-    </p>
+      <p>
+        was also part of <a href="https://lossfunk.com/residency/" target="_blank" rel="noreferrer"
+          >Lossfunk Residency</a
+        >, batch 6.
+      </p>
+    </section>
 
-    <p>
-      check out
-      <a href="https://www.hangingpiece.com" target="_blank">Hanging Piece</a>, an AI chess coach i built.
-    </p>
+    <section class="currently-exploring">
+      <h2>$ currently exploring</h2>
+      <ul>
+        {
+          exploringItems.map((item) => (
+            <li>
+              {item.href ? (
+                <a href={item.href} target={item.external ? "_blank" : undefined} rel="noreferrer">
+                  {item.label}
+                </a>
+              ) : (
+                item.label
+              )}
+            </li>
+          ))
+        }
+      </ul>
+
+      <p>
+        also check out <a href="https://www.hangingpiece.com" target="_blank" rel="noreferrer">Hanging Piece</a>, an AI
+        chess coach i built.
+      </p>
+    </section>
 
     {
       posts.length > 0 && (
-        <div class="latest-posts">
-          <h2>latest posts</h2>
+        <section class="latest-posts">
+          <h2>$ latest posts</h2>
           <ul>
             {posts.map((post) => (
               <li>
                 <a href={post.url}>{post.frontmatter.title}</a>
-                <span class="post-date">
-                  {new Date(post.frontmatter.pubDate).toLocaleDateString("en-US", {
-                    year: "numeric",
-                    month: "short",
-                    day: "numeric",
-                  })}
-                </span>
+                <span class="post-date">{post.formattedDate}</span>
               </li>
             ))}
           </ul>
-        </div>
+        </section>
       )
     }
 
-    <nav>
-      <a href="/resume">resume</a>
-      <a href="/blogs">blog</a>
-      <a href="/from-scratch">projects</a>
-      <a href="https://github.com/biraj21" target="_blank">github</a>
-      <a href="mailto:biraj.pub@gmail.com">email</a>
+    <nav class="home-nav" aria-label="Primary">
+      {
+        navLinks.map((link) => (
+          <a
+            href={link.href}
+            target={link.external ? "_blank" : undefined}
+            rel={link.external ? "noreferrer" : undefined}
+          >
+            {link.label}
+          </a>
+        ))
+      }
     </nav>
   </main>
+
+  <style>
+    .home {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 3rem 1rem;
+      line-height: 1.6;
+      text-align: left;
+    }
+
+    .home h1 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      font-weight: normal;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 0.5rem;
+    }
+
+    .home p {
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .home section + section,
+    .home-nav {
+      margin-top: 2rem;
+    }
+
+    .home h2 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      font-weight: normal;
+      border-bottom: 1px solid var(--accent-color);
+      padding-bottom: 0.3rem;
+    }
+
+    .currently-exploring ul {
+      margin: 0;
+      padding-left: 2rem;
+    }
+
+    .latest-posts ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .latest-posts li {
+      margin-bottom: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+    }
+
+    .latest-posts .post-date {
+      color: #666;
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+
+    .home-nav {
+      border-top: 1px solid var(--accent-color);
+      padding-top: 1rem;
+    }
+
+    .home-nav a {
+      display: inline-block;
+      margin-right: 1rem;
+      margin-bottom: 0.5rem;
+      padding: 0.2rem 0.5rem;
+      border: 1px solid var(--accent-color);
+      text-decoration: none;
+      font-family: inherit;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem;
+      }
+
+      .home {
+        padding: 1rem;
+      }
+
+      .home h1 {
+        font-size: 1.3rem;
+      }
+
+      .home h2 {
+        font-size: 1.1rem;
+      }
+
+      .latest-posts li {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.2rem;
+      }
+
+      .home-nav a {
+        margin-right: 0.5rem;
+      }
+    }
+  </style>
 </Layout>
-
-<style>
-  main {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 3rem 1rem;
-    line-height: 1.4;
-    text-align: left;
-  }
-
-  h1 {
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
-    font-weight: normal;
-    border-bottom: 2px solid var(--accent-color);
-    padding-bottom: 0.5rem;
-  }
-
-  p {
-    font-size: 0.95rem;
-    margin-bottom: 1rem;
-  }
-
-  .latest-posts {
-    margin: 2rem 0;
-  }
-
-  .latest-posts h2 {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    font-weight: normal;
-    border-bottom: 1px solid var(--accent-color);
-    padding-bottom: 0.3rem;
-  }
-
-  .latest-posts ul {
-    list-style: none;
-    padding: 0;
-  }
-
-  .latest-posts li {
-    margin-bottom: 0.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 1rem;
-  }
-
-  .latest-posts .post-date {
-    color: #666;
-    font-size: 0.85rem;
-    white-space: nowrap;
-  }
-
-  nav {
-    margin-top: 2rem;
-    border-top: 1px solid var(--accent-color);
-    padding-top: 1rem;
-  }
-
-  nav a {
-    display: inline-block;
-    margin-right: 1rem;
-    margin-bottom: 0.5rem;
-    padding: 0.2rem 0.5rem;
-    border: 1px solid var(--accent-color);
-    text-decoration: none;
-    font-family: inherit;
-  }
-
-  /* Mobile */
-  @media (max-width: 600px) {
-    body {
-      padding: 2rem 1rem;
-    }
-
-    h1 {
-      font-size: 1.5rem;
-    }
-
-    nav a {
-      margin-right: 0.5rem;
-    }
-  }
-</style>
