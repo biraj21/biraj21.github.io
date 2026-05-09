@@ -7,18 +7,8 @@ const introLinks = {
   books: "https://www.goodreads.com/user/show/189947877-biraj",
 };
 
-const exploringItems = [
-  {
-    href: "https://github.com/biraj21/ex-coding-agent",
-    label: "elixir & agent harnesses",
-    external: true,
-  },
-  { label: "real-time voice AI infra" },
-  { label: "multi-agent systems" },
-];
-
 const navLinks = [
-  { href: "https://x.com/biraj21_", label: "X", external: true },
+  { href: "https://x.com/biraj21_", label: "twitter", external: true },
   { href: "/resume", label: "resume" },
   { href: "/blogs", label: "blog" },
   { href: "/from-scratch", label: "projects" },
@@ -26,27 +16,29 @@ const navLinks = [
   { href: "mailto:biraj.pub@gmail.com", label: "email" },
 ];
 
-const allPosts = Object.values(import.meta.glob("./blogs/*.md", { eager: true }));
+// const allPosts = Object.values(import.meta.glob("./blogs/*.md", { eager: true }));
 
-const posts = allPosts
-  .filter((post) => !post.url?.includes(".draft"))
-  .sort((a, b) => new Date(b.frontmatter.pubDate).getTime() - new Date(a.frontmatter.pubDate).getTime())
-  .slice(0, 3)
-  .map((post) => ({
-    ...post,
-    formattedDate: new Date(post.frontmatter.pubDate).toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-    }),
-  }));
+// const posts = allPosts
+//   .filter((post) => !post.url?.includes(".draft"))
+//   .sort((a, b) => new Date(b.frontmatter.pubDate).getTime() - new Date(a.frontmatter.pubDate).getTime())
+//   .slice(0, 2)
+//   .map((post) => ({
+//     ...post,
+//     formattedDate: new Date(post.frontmatter.pubDate).toLocaleDateString("en-US", {
+//       year: "numeric",
+//       month: "short",
+//       day: "numeric",
+//     }),
+//   }));
 ---
 
 <Layout title="Biraj">
   <main class="home">
-    <h1>biraj - wannabe founder</h1>
+    <h1>biraj - building <a href="https://shellular.dev" target="_blank">shellular.dev</a></h1>
 
     <section class="intro">
+      <img src="/images/me.jpeg" alt="Biraj" class="profile-image" />
+
       <p>
         i sometimes build things <a href={introLinks.projects}>from scratch</a> to understand how they work, write <a
           href={introLinks.blogs}>blogs</a
@@ -60,36 +52,26 @@ const posts = allPosts
       </p>
 
       <p>
-        was also part of <a href="https://lossfunk.com/residency/" target="_blank" rel="noreferrer"
-          >Lossfunk Residency</a
-        >, batch 6.
+        was part of <a href="https://lossfunk.com/residency/" target="_blank" rel="noreferrer">Lossfunk Residency</a>,
+        batch 6.
       </p>
     </section>
 
     <section class="currently-exploring">
       <h2>$ currently exploring</h2>
-      <ul>
-        {
-          exploringItems.map((item) => (
-            <li>
-              {item.href ? (
-                <a href={item.href} target={item.external ? "_blank" : undefined} rel="noreferrer">
-                  {item.label}
-                </a>
-              ) : (
-                item.label
-              )}
-            </li>
-          ))
-        }
-      </ul>
+
+      <p>
+        i'm building <a href="https://shellular.dev/" target="_blank" rel="noreferrer">Shellular</a>, an app that brings
+        your dev environment (terminals, browser dev tools, & coding agents like Claude Code, Codex, OpenCode etc.) on
+        your phone.
+      </p>
 
       <p>
         also check out <a href="https://www.hangingpiece.com" target="_blank" rel="noreferrer">Hanging Piece</a>, an AI
-        chess coach i built.
+        chess coach i've built.
       </p>
     </section>
-
+    <!-- 
     {
       posts.length > 0 && (
         <section class="latest-posts">
@@ -104,7 +86,7 @@ const posts = allPosts
           </ul>
         </section>
       )
-    }
+    } -->
 
     <nav class="home-nav" aria-label="Primary">
       {
@@ -123,7 +105,7 @@ const posts = allPosts
 
   <style>
     .home {
-      max-width: 500px;
+      max-width: 600px;
       margin: 0 auto;
       padding: 3rem 1rem;
       line-height: 1.6;
@@ -136,6 +118,21 @@ const posts = allPosts
       font-weight: normal;
       border-bottom: 2px solid var(--accent-color);
       padding-bottom: 0.5rem;
+    }
+
+    .intro {
+      position: relative;
+    }
+
+    .profile-image {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      float: right;
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+      shape-outside: circle(50%);
     }
 
     .home p {
@@ -154,11 +151,6 @@ const posts = allPosts
       font-weight: normal;
       border-bottom: 1px solid var(--accent-color);
       padding-bottom: 0.3rem;
-    }
-
-    .currently-exploring ul {
-      margin: 0;
-      padding-left: 2rem;
     }
 
     .latest-posts ul {
@@ -203,6 +195,12 @@ const posts = allPosts
 
       .home {
         padding: 1rem;
+      }
+
+      .profile-image {
+        width: 100px;
+        height: 100px;
+        margin-left: 1rem;
       }
 
       .home h1 {
