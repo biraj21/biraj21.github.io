@@ -13,14 +13,26 @@ author: Biraj
    - cleared 15min intro
    - rejected after 1st technical round (frontend) for some reason. it was easy af tho.
 
-3. 20 Jan 2026 — South Park Commons, Bangalore
+3. Jan 20, 2026 — South Park Commons, Bangalore
    - rejected for community membership [no interview]
 
-4. 14 Mar 2026 — YC Spring 2026
+4. Mar 14, 2026 — YC Spring 2026
    - rejected for Hanging Piece [no interview, as expected]
 
-5. 17 Mar 2026 — The Bridge by Entrepreneur First
+5. Mar 17, 2026 — The Bridge by Entrepreneur First
    - received rejection email in under 10 hours
 
+6. Apr 3, 2026 — Founders Inc
+   - applied on Mar 21, got intro call email on Mar 31, had the call on Apr 3.
+   - H said he'll lmk his decision in half a day but i didn't get any response
+   - even DMd on twitter on April 5th but got left on seen
+   - ps: i didn't have [Shellular](https://github.com/shellular-org) at the time of application. i talked about [OpenVoice](https://github.com/biraj21/open-voice) instead, so the rejection would have been understandable but ghosting... mehh whatever
+
+7. Mar 30, 2026 - Entrepreneur First, Bangalore
+   - applied for the 2nd time, on 29th for Fall 26 Bangalore program
+   - haven't received any response yet (it's June 3rd today)
+
+8. Jun 4, 2026 — a16z speedrun
+   - applied on May 7th, got rejected on June 4th without any interview
 
 > i'm exceptional tho. i just need to prove it somehow.
