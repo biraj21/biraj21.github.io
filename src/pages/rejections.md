@@ -34,5 +34,3 @@ author: Biraj
 
 8. Jun 4, 2026 — a16z speedrun
    - applied on May 7th, got rejected on June 4th without any interview
-
-> i'm exceptional tho. i just need to prove it somehow.
