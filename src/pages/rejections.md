@@ -34,3 +34,11 @@ author: Biraj
 
 8. Jun 4, 2026 — a16z speedrun
    - applied on May 7th, got rejected on June 4th without any interview
+
+9. June 5, 2026 - YC Summer 2026
+   - applied on May 3rd with Shellular, got rejected on June 5th without any interview, but got this in the email:
+
+   > We do have some good news, though - of the applications we read this batch, yours was in the top 10%. Because we found your application promising, we'd strongly encourage you to re-apply.
+
+10. June 5, 2026 - South Park Commons, SF
+    - applied on June 4th for community membership, got rejected without any interview
