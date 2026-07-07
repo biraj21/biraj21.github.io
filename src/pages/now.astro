@@ -1,0 +1,108 @@
+---
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout title="/now - Biraj">
+  <main class="now">
+    <h1><a href="/">biraj</a>/now</h1>
+
+    <p class="subtitle">
+      <a href="https://nownownow.com/about" target="_blank" rel="noreferrer">/now</a> page —
+      what i'm up to right now.
+    </p>
+
+    <section>
+      <h2>building <a href="https://shellular.dev" target="_blank">Shellular</a></h2>
+      <p>
+        brings your dev environment — terminals, AI coding agents (Claude Code,
+        Codex, OpenCode, etc.), browser dev tools — to your phone. end-to-end
+        encrypted, works with your own machine or a VPS.
+      </p>
+    </section>
+
+    <section>
+      <h2>Founders Inc Off Season II</h2>
+      <p>
+        part of the program from <strong>June 24 → August 7, 2026</strong>.
+      </p>
+    </section>
+
+    <section class="links">
+      <a href="https://youtu.be/I42X_6VHJ2I" target="_blank" rel="noreferrer">demo →</a>
+      <a href="https://shellular.dev" target="_blank" rel="noreferrer">download app →</a>
+    </section>
+  </main>
+
+  <style>
+    .now {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 3rem 1rem;
+      line-height: 1.6;
+      text-align: left;
+    }
+
+    .now h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      font-weight: normal;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 0.5rem;
+    }
+
+    .now h1 a {
+      text-decoration: none;
+    }
+
+    .now .subtitle {
+      font-size: 0.85rem;
+      color: #666;
+      margin-bottom: 2rem;
+    }
+
+    .now h2 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      font-weight: normal;
+      border-bottom: 1px solid var(--accent-color);
+      padding-bottom: 0.3rem;
+    }
+
+    .now p {
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .now section + section {
+      margin-top: 1.5rem;
+    }
+
+    .links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .links a {
+      padding: 0.4rem 0.8rem;
+      border: 1px solid var(--accent-color);
+      text-decoration: none;
+      font-family: inherit;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 600px) {
+      .now {
+        padding: 1.5rem 1rem;
+      }
+
+      .now h1 {
+        font-size: 1.3rem;
+      }
+
+      .now h2 {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</Layout>
