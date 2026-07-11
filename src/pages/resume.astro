@@ -16,9 +16,8 @@
     <main>
       <h1>Biraj</h1>
       <p>
-        i sometimes build things <a href="/from-scratch">from scratch</a> to understand how they work, write <a
-          href="/blogs">blogs</a
-        >, play chess (1900 rapid on
+        i sometimes build things <a href="/from-scratch">from scratch</a> to understand how they work, play chess (1900 rapid
+        on
         <a href="https://lichess.org/@/biraj21" target="_blank">lichess</a>), badminton, and read <a
           href="https://www.goodreads.com/user/show/189947877-biraj"
           target="_blank">books</a
@@ -61,21 +60,38 @@
               <small>
                 <time datetime="2026-04-03">april 2026</time>
                 -
-                <time datetime="present">present</time>
+                <time>present</time>
               </small>
             </h3>
             <ul>
               <li>
                 <h4>co-founder & CEO</h4>
+                <details>
+                  <summary>
+                    <a href="https://shellular.dev" target="_blank">Shellular</a> lets you remotely use your dev environment
+                    from your phone.
+                  </summary>
+                  <ul>
+                    <li>
+                      works with laptops, desktops, Mac minis, EC2 boxes, Hetzner servers, DigitalOcean droplets, and
+                      any VPS that can run Node.js.
+                    </li>
+                    <li>
+                      gives you AI agents like Codex, Claude Code, OpenCode, Pi & more; persistent terminals without
+                      tmux; local files & git repos; code editor, git client and localhost tunnels with browser
+                      DevTools.
+                    </li>
+                    <li>
+                      runs over an end-to-end encrypted relay, has roughly <em>80 DAUs</em>, and is
+                      <a href="https://github.com/shellular-org" target="_blank">open source</a>.
+                    </li>
+                    <li>
+                      accepted into the <em>Founders Inc Off Season II</em> program, in-person in San Francisco.
+                    </li>
+                  </ul>
+                </details>
               </li>
             </ul>
-            <details>
-              <summary>
-                <a href="https://shellular.dev" target="_blank">Shellular</a> brings your entire dev environment & agents
-                like Hermes, Claude Code, Codex & more on your phone; along with terminals, file system, code editor & an
-                in-app browser that you can use to access your machine's localhost without any hosting.
-              </summary>
-            </details>
           </li>
 
           <li class="work">
@@ -90,14 +106,24 @@
             <ul>
               <li>
                 <h4>founder</h4>
+                <details>
+                  <summary>
+                    <a href="https://www.hangingpiece.com" target="_blank">Hanging Piece</a> is an AI chess coach that explains
+                    your mistakes in plain English.
+                  </summary>
+                  <ul>
+                    <li>explains why a move was bad and what you should have played instead.</li>
+                    <li>uses Stockfish to evaluate moves, and Gemini 3 for reasoning and explanations.</li>
+                    <li>
+                      open sourced the
+                      <a href="https://github.com/biraj21/hanging-piece-fe" target="_blank">frontend</a>
+                      and
+                      <a href="https://github.com/biraj21/hanging-piece-be" target="_blank">backend</a>.
+                    </li>
+                  </ul>
+                </details>
               </li>
             </ul>
-            <details>
-              <summary>
-                <a href="https://www.hangingpiece.com" target="_blank">Hanging Piece</a> is an AI chess coach that explains
-                your mistakes in plain English, and also what you should have played instead.
-              </summary>
-            </details>
           </li>
 
           <li class="work">
@@ -106,7 +132,7 @@
               <small>
                 <time datetime="2024-08-01">aug 2024</time>
                 -
-                <time datetime="2026-02-015">feb 2026</time>
+                <time datetime="2026-02-15">feb 2026</time>
               </small>
             </h3>
             <ul>
@@ -125,40 +151,25 @@
                   </summary>
                   <ul>
                     <li>
-                      developed WebRTC based
-                      <em>real-time voice AI agent system</em>. used message-driven Actor Model architecture for
-                      concurrent units (threads) in the code.
+                      developed a WebRTC-based <em>real-time voice AI agent system</em> using a message-driven Actor Model
+                      architecture for concurrent runtime units.
                     </li>
                     <li>
-                      designed the system to be
-                      <em>compatible with OpenAI Realtime API specifications</em>. also built the
-                      <a href="https://www.npmjs.com/package/@outspeed/react" target="_blank">React SDK</a> to simplify integration
-                      for developers.
+                      designed the system around the <em>OpenAI Realtime API specification</em> and built the
+                      <a href="https://www.npmjs.com/package/@outspeed/react" target="_blank">React SDK</a> for developer
+                      integrations.
                     </li>
                     <li>
-                      added default system tools to our voice AI infra that enable
-                      <em>agents to automatically determine when to skip turns or end conversations</em>.
+                      implemented <em>voice activity detection and semantic turn-taking</em> using Silero VAD, so agents could
+                      skip turns, avoid bad interruptions, and end conversations naturally.
                     </li>
                     <li>
-                      implemented
-                      <em>Voice Activity Detection system</em>
-                      using Silero VAD. also implemented semantic VAD, where the model is less likely to interrupt the user.
+                      built <em>real-time log monitoring infrastructure</em> that shipped cloud logs to Grafana Loki and streamed
+                      them to the frontend via SSE.
                     </li>
                     <li>
-                      built
-                      <em>real-time log monitoring infrastructure</em>
-                      that ships application logs from cloud to Grafana Loki and streams them to frontend via SSE (server-sent
-                      events).
-                    </li>
-                    <li>
-                      automated cloud infrastructure deployment by creating
-                      <em>Terraform configurations for Nomad cluster on AWS</em>, managing EC2 instances, S3 buckets,
-                      Redis ElastiCache, ECR, etc.
-                    </li>
-                    <li>
-                      used <em>ClickHouse</em> for high-throughput analytics (~<em>3M+ events/day</em>), ingesting
-                      events via async inserts for convenient consumption, and using materialized views for fast
-                      aggregated queries.
+                      automated AWS deployments with <em>Terraform and Nomad</em>, and used <em>ClickHouse</em> for high-throughput
+                      analytics (~<em>3M+ events/day</em>) with async inserts and materialized views.
                     </li>
                   </ul>
                 </details>
@@ -187,33 +198,29 @@
 
                 <details>
                   <summary>
-                    built
+                    built core pieces of
                     <a href="https://thinkstack.ai" target="_blank">thinkstack.ai</a>, a multi-tenant B2B AI support
-                    platform where businesses can create and deploy production-ready chatbots powered by RAG.
+                    platform for deploying customer-support chatbots on top of company knowledge bases.
                   </summary>
                   <ul>
                     <li>
-                      implemented <em>Retrieval Augmented Generation (RAG)</em> using Pinecone to enable agent to answer questions
-                      using users' knowledge base.
+                      shipped core product surfaces across the <em>GraphQL backend</em>, Flask AI services, RAG,
+                      Redis-backed caching & queues, and AWS services including Cognito, S3, and API Gateway.
                     </li>
                     <li>
-                      built a user <em>intent detection using tool-calling</em> to route conversations automatically (lead
-                      capture, ticket creation, human handoff).
+                      built the knowledge-base answer pipeline with <em>Pinecone-backed retrieval</em>, crawler status
+                      tracking, and dashboard events for long-running ingestion jobs.
                     </li>
                     <li>
-                      shipped the <em>full-stack Thinkstack product</em>: GraphQL backend, Flask-based AI services, and
-                      Redis-backed caching + message queuing, deployed on AWS (Cognito, S3, API Gateway)
+                      designed the conversation routing layer using <em>tool-calling</em> for lead capture, ticket creation,
+                      and human handoff.
                     </li>
                     <li>
-                      designed a <em>real-time event notification system</em> (pub/sub) to send backend events (eg. website
-                      crawling completion) to the dashboard for reactive UI state changes.
+                      built <em>tenant isolation and access control</em>: sub-users, RBAC roles/permissions, and API-key
+                      authentication for external integrations.
                     </li>
                     <li>
-                      built <em>multi-tenant access control</em> including sub-users, RBAC roles/permissions, and API key
-                      authentication for secure external integrations.
-                    </li>
-                    <li>
-                      created <em>Zapier, Slack, WhatsApp, Facebook Messenger and Instagram</em> integrations for Thinkstack.
+                      created <em>Zapier, Slack, WhatsApp, Facebook Messenger, and Instagram</em> integrations for Thinkstack.
                     </li>
                   </ul>
                 </details>
@@ -231,7 +238,7 @@
                   <summary>
                     migrated
                     <a href="https://www.pickcel.com/" target="_blank">Pickcel</a>'s backend codebase from node 12 to
-                    node 18. also learnt Docker.
+                    Node 18. also learned Docker.
                   </summary>
                   <ul>
                     <li>
@@ -241,7 +248,7 @@
                     </li>
                     <li>
                       <em>optimized Dockerfile for our on-premise setup</em> by properly reordering layers, reducing consecutive
-                      build times and improving cache utilization. also added redis to the stack.
+                      build times and improving cache utilization. also added Redis to the stack.
                     </li>
                     <li>
                       introduced <em>semantic git commits</em>, coding conventions, and structure, which is now embraced
@@ -342,8 +349,8 @@
             <img src="/images/icons/go.svg" alt="Go" />
           </h3>
           <p>
-            i was implementing Neural Networks from scratch in Go and as a byproduct of it, i created my own version of
-            NumPy for tensor operations like +, -, *, /, matrix multiplication, transpose etc. it also supports
+            i was implementing neural networks from scratch in Go, and as a byproduct of it, i created my own version of
+            NumPy for tensor operations like +, -, *, /, matrix multiplication, transpose, etc. it also supports
             <a href="https://numpy.org/doc/stable/user/basics.broadcasting.html">broadcasting</a>.
             <br />
             <a
@@ -387,7 +394,7 @@
           </h3>
           <p>
             a CLI tool to run Go programs in watch mode. to watch for changes, it uses <code>kqueue()</code> system call on
-            macOS and <code>inotify</code> on Linux. no 3rd-party dependencies.
+            macOS and <code>inotify</code> on Linux. no third-party dependencies.
             <br />
             <a class="project__source-code" href="https://github.com/biraj21/gomon" target="_blank"></a>
           </p>
@@ -402,7 +409,7 @@
             <a href="https://github.com/biraj21/web-wanderer" target="_blank">web crawler</a> |
             <a href="https://github.com/biraj21/array-visualizer" target="_blank">tensor visualizer</a>
             (<a href="https://arrayvis.netlify.app/" target="_blank">demo</a>) |
-            <a href="https://github.com/biraj21/findrep" target="_blank">findREp</a>
+            <a href="https://github.com/biraj21/findrep" target="_blank">findREp</a> |
             <a
               href="https://chromewebstore.google.com/detail/ask-my-ai-free-chatgpt-cl/clfbemdacihopdopaanknckjkgbpando"
               target="_blank"
@@ -411,39 +418,6 @@
             >
           </p>
         </div>
-      </section>
-
-      <hr />
-
-      <section id="blogs">
-        <h2>blog</h2>
-
-        <ul>
-          <li>
-            <a href="/blogs/empty-strings-and-zero-length-arrays.html" target="_blank"
-              >Empty Strings and Zero-length Arrays: How do We Store... Nothing?</a
-            >
-          </li>
-          <li>
-            <a href="blogs/redis-keyspace-notifications" target="_blank">Redis Keyspace Notifications</a>
-          </li>
-          <li>
-            <a href="https://dev.to/biraj21/introduction-to-numpy-31md" target="_blank">Introduction to NumPy</a>
-          </li>
-          <li>
-            <a href="https://dev.to/biraj21/javascript-array-methods-understand-by-implementing-54g3" target="_blank"
-              >Understand JavaScript Array Methods By Implementing Them</a
-            >
-          </li>
-          <li>
-            <a href="/blogs/cors" target="_blank">What is CORS?</a>
-          </li>
-          <li>
-            <a href="https://biraj21.medium.com/what-are-pointers-in-c-d21efd5e41dc" target="_blank"
-              >What are Pointers in C?</a
-            >
-          </li>
-        </ul>
       </section>
 
       <hr class="no-print" />
@@ -479,6 +453,7 @@
   :root {
     font-family: "Fira Code", monospace;
     font-size: 13px;
+    line-height: 1.5;
   }
 
   a,
@@ -613,15 +588,20 @@
     margin-top: 4px;
   }
 
-  #blogs ul {
-    text-align: left;
-  }
-
   span.separator-bar {
     margin: 0 4px;
   }
 
   @media print {
+    @page {
+      margin: 0.42in;
+    }
+
+    :root {
+      font-size: 11.5px;
+      line-height: 1.33;
+    }
+
     .print-only {
       display: block;
     }
@@ -631,6 +611,7 @@
     }
 
     main {
+      max-width: none;
       margin-top: 0;
       padding-top: 0;
     }
@@ -638,6 +619,53 @@
     main > h1 {
       margin-top: 0;
       padding-top: 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 7px 0;
+    }
+
+    p,
+    [role="paragraph"] {
+      margin: 8px 0;
+    }
+
+    li {
+      margin-bottom: 3px;
+    }
+
+    hr {
+      margin: 10px 0;
+    }
+
+    #work-experience .work details ul {
+      margin-top: 4px;
+    }
+
+    #projects .project p {
+      margin-top: 4px;
+    }
+
+    #skills ul {
+      list-style: none;
+    }
+
+    #skills li {
+      display: inline;
+    }
+
+    #skills li:not(:last-child)::after {
+      content: "; ";
+    }
+
+    #projects .project__source-code,
+    #projects .separator-bar {
+      display: none;
     }
 
     #socials a {
