@@ -38,7 +38,7 @@ and this:
 
 ### finale
 
-is this the more efficient way to write software these days? nope.
+is this the most efficient way to write software these days? nope.
 
 will i always do this from now on? nope.
 
