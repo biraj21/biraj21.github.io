@@ -16,11 +16,11 @@ nothing. i lied in the title. i use claude code again (Opus 4.8, high effort), a
 
 it's because i made all the decisions, and was constantly in loop. i reviewed each and every file in [this pr](https://github.com/shellular-org/server/pull/12), found issues, and told it to make A LOT of changes. in fact today, i didn't even cut corners in organizing the codebase _my way_, something that satisfied me a lot back in 2024 once done.
 
-i didn't just tell it to "make no mistakes" or "just fix it" , i described _**how** i would like things to be_. this required some thinking from my end. i just sat for some time staring at the ceiling - planning, thinking, and then just told it how it should be done. i didn't even feel like "asking" any AI whether i was right or not. i just went with what i thought was right.
+i didn't just tell it to "make no mistakes" or "just fix it", i described _**how** i would like things to be_. this required some thinking from my end. i just sat for some time staring at the ceiling - planning, thinking, and then just told it how it should be done. i didn't even feel like "asking" any AI whether i was right or not. i just went with what i thought was right.
 
 ### the realization
 
-it reminded me what programming used to be for me before AI. **it was the joy of figuring things out myself.**. the reason we felt so good seeing it finally work was because of every mistake, every idea, every decision that got it there. maybe god really is in the details.
+it reminded me what programming used to be for me before AI. **it was the joy of figuring things out myself.** the reason we felt so good seeing it finally work was because of every mistake, every idea, every decision that got it there. maybe god really is in the details.
 
 the craft was never in typing out each line of code by hand, but in the _process of thinking_ that led to the code. and today, i felt that again. that's why it felt like i wrote code today, and why it felt really good.
 
