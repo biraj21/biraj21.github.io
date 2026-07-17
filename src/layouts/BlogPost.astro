@@ -10,6 +10,8 @@ const formattedDate = pubDate
       year: "numeric",
       month: "long",
       day: "numeric",
+      // add timezone to UTC so it doesn't try to change the day based on the user's timezone
+      timeZone: "UTC",
     })
   : null;
 
