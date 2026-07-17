@@ -12,21 +12,21 @@ i just test the thing, lazily skim over the diff, call it a retard (among other 
 
 ### so what changed today?
 
-nothing. i lied in the title. i use claude code again (Opus 4.8, high effort), and in fact did a much longer session that i had ever done before. then why did i say that i wrote code, and more importantly, why did i feel _really good_ today?
+nothing. i lied in the title. i use claude code again (Opus 4.8, high effort), and in fact did a much longer session than i had ever done before. then why did i say that i wrote code, and more importantly, why did i feel _really good_ today?
 
-it's because i made all the decisions, and was constantly in loop. i reviewed each and every file in [this pr](https://github.com/shellular-org/server/pull/12), found issues, and told it to make A LOT of changes. in fact today, i didn't even cut corners in organizing the codebase _my way_, something that satisfied me a lot back in 2024 whenever i finished doing it.
+it's because i made all the decisions, and was constantly in the loop. i reviewed each and every file in [this pr](https://github.com/shellular-org/server/pull/12), found issues, and told it to make A LOT of changes. in fact today, i didn't even cut corners in organizing the codebase _my way_, something that satisfied me a lot when i did it manually.
 
-i didn't just tell it to "make no mistakes" or "just fix it", i described _**how** i would like things to be_. this required some thinking from my end. i just sat for some time staring at the ceiling - planning, thinking, and then just told it how it should be done. i didn't even feel like "asking" any AI whether i was right or not. i just went with what i thought was right.
+i didn't just tell it to "make no mistakes" or "just fix it", i described _**how** i would like things to be_. this required burning some biological reasoning tokens. i just sat for some time staring at the ceiling - planning, thinking, and then just told it how it should be done. i didn't even feel like "asking" AI whether i was right or not. i just went with what i thought was right.
 
 ### the realization
 
-it reminded me what programming used to be for me before AI. **it was the joy of figuring things out myself.** the reason we felt so good seeing it finally work was because of every mistake, every idea, every decision that got it there. maybe god really is in the details.
+it reminded me what programming used to be for me before AI. **it was the joy of figuring things out myself.** the reason we felt so good seeing it finally work was every mistake, every idea, every decision that got it there. maybe god really is in the details.
 
 the craft was never in typing out each line of code by hand, but in the _process of thinking_ that led to the code. and today, i felt that again. that's why it felt like i wrote code today, and why it felt really good.
 
 ### AI sycophancy
 
-even though i like to believe than i don't fall for clanker flattery, i have to admit that claude's reactions probably contributed a little to the good feeling.
+even though i like to believe that i don't fall for clanker flattery, i have to admit that claude's reactions probably contributed a little to the good feeling.
 
 see this:
 
