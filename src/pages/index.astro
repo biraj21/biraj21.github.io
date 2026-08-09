@@ -34,21 +34,19 @@ const navLinks = [
 
 <Layout title="Biraj">
   <main class="home">
-    <h1>biraj - building <a href="https://shellular.dev" target="_blank">shellular.dev</a></h1>
+    <h1>biraj</h1>
+
+    <hr class="thick" />
 
     <section class="intro">
       <img src="/images/me.jpeg" alt="Biraj" class="profile-image" />
 
       <p>
-        i sometimes build things <a href={introLinks.projects}>from scratch</a> to understand how they work, play chess (1700
-        rapid on <a href="https://www.chess.com/member/biraj21" target="_blank" rel="noreferrer">chess.com</a>), play
-        badminton, and read <a href={introLinks.books} target="_blank" rel="noreferrer">books</a>.
-      </p>
-
-      <p>
-        was also part of <a href="https://lossfunk.com/residency/" target="_blank" rel="noreferrer"
-          >Lossfunk Residency</a
-        >, batch 6.
+        i sometimes build things <a href={introLinks.projects}>from scratch</a>, play chess (1900 rapid on <a
+          href="https://lichess.org/@/biraj21"
+          target="_blank"
+          rel="noreferrer">Lichess</a
+        >), play badminton, and read <a href={introLinks.books} target="_blank" rel="noreferrer">books</a>.
       </p>
 
       <p>currently fucking around, hoping for the divine find out.</p>
@@ -57,18 +55,35 @@ const navLinks = [
     <section class="currently-exploring">
       <h2>$ currently exploring</h2>
 
-      <p>
-        i'm building <a href="https://shellular.dev/" target="_blank" rel="noreferrer">Shellular</a>, an app that brings
-        your dev environment (terminals, browser dev tools, & agents like Hermes, Claude Code, Codex, OpenCode etc.) on
-        your phone. here's <a href="https://www.youtube.com/watch?v=I42X_6VHJ2I" target="_blank">the demo</a>.
-      </p>
+      <hr />
 
       <p>
-        also check out <a href="https://www.hangingpiece.com" target="_blank" rel="noreferrer">Hanging Piece</a>, an AI
-        chess coach i've built.
+        building <a href="https://shellular.dev/" target="_blank" rel="noreferrer">Shellular</a>, which lets you use
+        your dev environment from your phone. here's
+        <a href="https://youtu.be/5OiZvayop0I?si=tNiOWOrtETbN0re0" target="_blank">the demo</a>.
       </p>
+
+      <p>also learning Rust, because vibe coding is rotting my brain and eroding my soul.</p>
     </section>
-    <!-- 
+
+    <section class="programs">
+      <h2>$ programs</h2>
+
+      <hr />
+
+      <ul class="programs">
+        <li>
+          <a href="https://f.inc/" target="_blank" rel="noreferrer">Founders Inc Off Season II</a>
+          <span>San Francisco</span>
+        </li>
+        <li>
+          <a href="https://lossfunk.com/residency/" target="_blank" rel="noreferrer">Lossfunk Residency, Batch 6</a>
+          <span>Bangalore</span>
+        </li>
+      </ul>
+    </section>
+
+    <!--
     {
       posts.length > 0 && (
         <section class="latest-posts">
@@ -85,6 +100,8 @@ const navLinks = [
       )
     } -->
 
+    <hr />
+
     <nav class="home-nav" aria-label="Primary">
       {
         navLinks.map((link) => (
@@ -98,6 +115,11 @@ const navLinks = [
         ))
       }
     </nav>
+
+    <p>
+      also check out <a href="https://www.hangingpiece.com" target="_blank" rel="noreferrer">Hanging Piece</a>, an AI
+      chess coach i've built.
+    </p>
   </main>
 
   <style>
@@ -111,10 +133,18 @@ const navLinks = [
 
     .home h1 {
       font-size: 1.8rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 0;
       font-weight: normal;
-      border-bottom: 2px solid var(--accent-color);
-      padding-bottom: 0.5rem;
+    }
+
+    .home hr {
+      border: none;
+      border-top: 1px solid var(--accent-color);
+      margin: 1rem 0;
+    }
+
+    .home hr.thick {
+      border-top-width: 2px;
     }
 
     .intro {
@@ -137,17 +167,42 @@ const navLinks = [
       margin-bottom: 1rem;
     }
 
-    .home section + section,
-    .home-nav {
+    .programs {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    .programs li {
+      margin-bottom: 0.4rem;
+      padding-left: 1rem;
+      position: relative;
+    }
+
+    .programs li::before {
+      content: "-";
+      position: absolute;
+      left: 0;
+      color: var(--accent-color);
+    }
+
+    .programs span {
+      color: #666;
+    }
+
+    .programs span::before {
+      content: " / ";
+    }
+
+    .home section + section {
       margin-top: 2rem;
     }
 
     .home h2 {
       font-size: 1.2rem;
-      margin-bottom: 1rem;
+      margin-bottom: 0;
       font-weight: normal;
-      border-bottom: 1px solid var(--accent-color);
-      padding-bottom: 0.3rem;
     }
 
     .latest-posts ul {
@@ -168,11 +223,6 @@ const navLinks = [
       color: #666;
       font-size: 0.85rem;
       white-space: nowrap;
-    }
-
-    .home-nav {
-      border-top: 1px solid var(--accent-color);
-      padding-top: 1rem;
     }
 
     .home-nav a {
@@ -212,6 +262,14 @@ const navLinks = [
         align-items: flex-start;
         flex-direction: column;
         gap: 0.2rem;
+      }
+
+      .programs span {
+        display: block;
+      }
+
+      .programs span::before {
+        content: none;
       }
 
       .home-nav a {
