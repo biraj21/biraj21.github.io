@@ -1,6 +1,7 @@
 ---
 layout: "@/layouts/BlogPost.astro"
 title: Rejections
+description: "have faced more rejections than this, but these are the one i care about"
 pubDate: 2026-03-19
 author: Biraj
 ---
@@ -48,6 +49,11 @@ author: Biraj
 
 11. June 17, 2026 - YC Startup School Event
     - applied on April 25th. got rejection email on June 17th :)
+
+12. July 14, 2026 - The Bridge by Entrepreneur First
+    - applied on May 28th, received rejection email on July 14th containing:
+
+    > After careful consideration, we didn’t feel that your application demonstrated the strong fit we look for in founders on our programs. As a result, we won’t be advancing your application to the next stage.
 
 <!--12. Mar 30, 2026 - Entrepreneur First, Bangalore
     - applied for the 2nd time, on 29th for Fall 26 Bangalore program
