@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multi-Dimensional Array Visualizer</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        width: 100%;
+        height: 100vh;
+        background-color: #000;
+        overflow: hidden;
+        font-family: sans-serif;
+      }
+
+      #vis-container {
+        width: calc(100% - 32px);
+        height: calc(100% - 90px);
+        margin: 16px;
+        background-color: #08090a;
+        overflow: auto;
+      }
+
+      #input-container {
+        margin-top: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        gap: 6px;
+      }
+
+      #project-description {
+        color: #b8b8b8;
+        font-size: 13px;
+        max-width: 720px;
+        text-align: center;
+      }
+
+      #shape {
+        width: 120px;
+        padding: 2px 5px;
+        margin: 0 5px;
+      }
+
+      #draw-btn,
+      #download-btn {
+        height: 24px;
+        padding: 2px 5px;
+        border-radius: 3px;
+        font-size: 13px;
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      #draw-btn {
+        border-style: solid;
+        border-color: #63c8e4;
+        background-color: #63c8e4;
+      }
+
+      #download-btn {
+        margin-left: 5px;
+        background-color: #63e463;
+        text-decoration: none;
+        color: #000;
+      }
+
+      footer {
+        width: 100%;
+        color: #fff;
+        position: fixed;
+        text-align: center;
+        bottom: 16px;
+      }
+
+      footer a {
+        color: #5050ff;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="input-container">
+      <p id="project-description">
+        This tool just helps your visualize multi-dimensional arrays. Enter the size of each dimension to draw a visual
+        representation of the array.
+      </p>
+      <div>
+        Shape:
+        <input type="text" id="shape" placeholder="e.g: 3 5 3 3" value="3 5 3 3" />
+
+        <button id="draw-btn">Draw</button>
+        <a href="" download="array-vis.png" id="download-btn">Download</a>
+      </div>
+    </div>
+
+    <div id="vis-container">
+      <canvas id="vis"></canvas>
+    </div>
+
+    <footer>Source code on <a href="https://github.com/biraj21/tensor-visualizer" target="_blank">GitHub</a>.</footer>
+
+    <script>
+      "use strict";
+
+      const BG_COLOR = "#08090a";
+      const BLUE = "#3ab1d2";
+      const ORANGE = "#ffbc03";
+      const PINK = "#c22eb8";
+      const RED = "#C1554D";
+      const GREEN = "#97B82B";
+
+      const colors = [ORANGE, RED, GREEN, BLUE, PINK];
+
+      const LINE_WIDTH = 2;
+
+      const GAP = 10;
+      const MATRIX_GAP_X = 15; // horizontal gap between matrices in a 3D array
+      const MATRIX_GAP_Y = 13; // vertical gap between matrices in a 3D array
+      const ND_SHAPE_GAP = 25; // gap between ND shapes
+      const CELL_SIZE = 25;
+
+      const canvas = document.getElementById("vis");
+      const shape_input_el = document.getElementById("shape");
+      const download_btn_el = document.getElementById("download-btn");
+      const draw_btn_el = document.getElementById("draw-btn");
+
+      draw_btn_el.onclick = visualize;
+      download_btn_el.onclick = download_image;
+
+      const ctx = canvas.getContext("2d");
+
+      let image_created = false;
+
+      function visualize() {
+        const shape = shape_input_el.value
+          .trim()
+          .replace(/\s+/g, " ")
+          .split(" ")
+          .map((size) => parse_int(size));
+
+        if (shape.some((size) => isNaN(size) || size == 0)) {
+          alert("Enter a valid shape! (e.g. 3 5 3 3)");
+          return;
+        }
+
+        image_created = false;
+
+        [canvas.width, canvas.height] = shape_size(shape);
+        canvas.width += 2 * GAP;
+        canvas.height += 2 * GAP;
+
+        clear_canvas();
+        draw(shape);
+      }
+
+      /*** utility functions ***/
+      function is_digit(c) {
+        return c >= "0" && c <= "9";
+      }
+
+      function parse_int(str) {
+        for (const c of str) {
+          if (!is_digit(c)) return NaN;
+        }
+
+        return parseInt(str);
+      }
+
+      function shape_size(shape) {
+        const ndims = shape.length;
+        let width, height;
+
+        if (ndims == 1) {
+          width = CELL_SIZE * shape[0] + (shape[0] - 1) * GAP;
+          height = CELL_SIZE;
+        } else if (ndims == 2) {
+          const [n_rows, n_cols] = shape;
+          width = n_cols * CELL_SIZE + (shape[1] + 1) * GAP;
+          height = n_rows * CELL_SIZE + (n_rows + 1) * GAP;
+        } else {
+          const [n_mats, n_rows, n_cols] = shape.slice(-3);
+          width = n_cols * CELL_SIZE + (n_cols + 3) * GAP + (n_mats - 1) * MATRIX_GAP_X;
+          height = n_rows * CELL_SIZE + (n_rows + 3) * GAP + (n_mats - 1) * MATRIX_GAP_Y;
+
+          let horizontal = true;
+          for (let i = ndims - 4; i >= 0; --i) {
+            if (horizontal) {
+              width *= shape[i];
+              width += (shape[i] - 1) * ND_SHAPE_GAP;
+            } else {
+              height *= shape[i];
+              height += (shape[i] - 1) * ND_SHAPE_GAP;
+            }
+
+            width += 2 * GAP;
+            height += 2 * GAP;
+
+            horizontal = !horizontal;
+          }
+        }
+
+        return [width, height];
+      }
+
+      function clear_canvas() {
+        ctx.fillStyle = BG_COLOR;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+      }
+
+      function download_image(e) {
+        if (!image_created) {
+          e.preventDefault();
+          alert("Image is not yet created!");
+        }
+      }
+
+      /*** drawing functions ***/
+      function draw(shape) {
+        if (shape.length == 1) draw_1d(shape, GAP, GAP);
+        else if (shape.length == 2) draw_2d(shape, GAP, GAP);
+        else draw_nd(shape, GAP, GAP);
+
+        canvas.toBlob((blob) => {
+          download_btn_el.href = URL.createObjectURL(blob);
+          image_created = true;
+        });
+      }
+
+      function draw_1d(shape, x, y, bg_color = BG_COLOR) {
+        const [width, height] = shape_size(shape);
+        const [len] = shape;
+
+        ctx.fillStyle = BLUE;
+        ctx.fillRect(x, y, width, height);
+
+        let gap_x = x + CELL_SIZE;
+        ctx.fillStyle = bg_color;
+        for (let i = 1; i < len; ++i) {
+          ctx.fillRect(gap_x, y, GAP, CELL_SIZE);
+          gap_x += GAP + CELL_SIZE;
+        }
+      }
+
+      function draw_2d(shape, x, y, draw_whole = true) {
+        const [width, height] = shape_size(shape);
+        const [n_rows, n_cols] = shape;
+
+        ctx.fillStyle = BG_COLOR;
+        ctx.fillRect(x, y, width, height);
+
+        ctx.lineWidth = LINE_WIDTH;
+        ctx.strokeStyle = PINK;
+        ctx.strokeRect(x, y, width, height);
+
+        x += GAP;
+        y += GAP;
+
+        if (draw_whole) {
+          for (let i = 0; i < n_rows; ++i) {
+            draw_1d([n_cols], x, y);
+            y += CELL_SIZE + GAP;
+          }
+        } else {
+          draw_1d([n_cols], x, y);
+          y += CELL_SIZE + GAP;
+
+          for (let i = 1; i < n_rows; ++i) {
+            draw_1d([1], x, y);
+            y += CELL_SIZE + GAP;
+          }
+        }
+      }
+
+      function draw_3d(shape, x, y) {
+        const [width, height] = shape_size(shape);
+        const [n_mats, n_rows, n_cols] = shape;
+
+        ctx.lineWidth = LINE_WIDTH;
+        ctx.strokeStyle = ORANGE;
+        ctx.strokeRect(x, y, width, height);
+
+        const shape_end_x = x + width;
+        const shape_end_y = y + height;
+
+        x += GAP;
+        y += GAP;
+
+        for (let i = 1; i < n_mats; ++i) {
+          draw_2d([n_rows, n_cols], x, y, false);
+          x += MATRIX_GAP_X;
+          y += MATRIX_GAP_Y;
+        }
+
+        draw_2d([n_rows, n_cols], x, y);
+        return [shape_end_x, shape_end_y];
+      }
+
+      function draw_nd(shape, x, y) {
+        const ndims = shape.length;
+        if (ndims == 3) return draw_3d(shape, x, y);
+
+        const [width, height] = shape_size(shape);
+
+        ctx.strokeStyle = colors[(ndims - 3) % colors.length];
+        ctx.lineWidth = LINE_WIDTH;
+        ctx.strokeRect(x, y, width, height);
+
+        const shape_end_x = x + width;
+        const shape_end_y = y + height;
+
+        x += GAP;
+        y += GAP;
+
+        const horizontal = ndims % 2 == 0;
+        for (let i = 0; i < shape[0]; ++i) {
+          const [new_x, new_y] = draw_nd(shape.slice(1), x, y);
+          if (horizontal) x = new_x + ND_SHAPE_GAP;
+          else y = new_y + ND_SHAPE_GAP;
+        }
+
+        return [shape_end_x, shape_end_y];
+      }
+
+      visualize();
+    </script>
+  </body>
+</html>
