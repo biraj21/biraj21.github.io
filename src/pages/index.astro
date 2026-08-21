@@ -3,21 +3,21 @@ import Layout from "@/layouts/Layout.astro";
 
 const introLinks = {
   projects: "/from-scratch",
-  blogs: "/blogs",
+  blogs: "/posts",
   books: "https://www.goodreads.com/user/show/189947877-biraj",
 };
 
 const navLinks = [
   { href: "https://x.com/biraj21_", label: "twitter", external: true },
   { href: "/resume", label: "resume" },
-  { href: "/blogs", label: "blog" },
+  { href: "/posts", label: "blog" },
   { href: "/from-scratch", label: "projects" },
   { href: "https://github.com/biraj21", label: "github", external: true },
   { href: "mailto:biraj.pub@gmail.com", label: "email" },
   { href: "/arrayvis", label: "visualize multi-dimensional arrays" },
 ];
 
-// const allPosts = Object.values(import.meta.glob("./blogs/*.md", { eager: true }));
+// const allPosts = Object.values(import.meta.glob("./posts/*.md", { eager: true }));
 
 // const posts = allPosts
 //   .filter((post) => !post.url?.includes(".draft"))
