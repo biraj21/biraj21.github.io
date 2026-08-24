@@ -22,4 +22,4 @@ then it's not just a "superficial" desire anymore, it's your motivation now - yo
 
 remember, we all are flawed animals. you think you're not? fine. then how about this? your life is already pointless, so do yourself a favour and jump off your "these desires are beneath me" pedestal, Buddha.
 
-so, what's your "superficial" ~desire~ motivator that you can capitalize on?
+so, what's your "superficial" ~~desire~~ motivator that you can capitalize on?

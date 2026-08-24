@@ -21,6 +21,7 @@ Examples of events that can be received are:
 - All the commands affecting a given key.
 - All the keys receiving an LPUSH operation.
 - All the keys expiring in the database 0.
+
 </blockquote>
 
 by default they are disabled 'cause they use some CPU power (obviously). but they can be enabled via notify-keyspace-events configuration.

@@ -6,9 +6,11 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "format": "prettier --write \"src/**/*.{js,css,md,html,ts}\" \"public/**/*.{js,css,md,html,ts}\""
   },
   "devDependencies": {
-    "astro": "^7.2.4"
+    "astro": "^7.2.4",
+    "prettier": "^3.9.6"
   }
 }
