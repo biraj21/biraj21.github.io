@@ -1,6 +1,10 @@
 ---
-import Layout from "@/layouts/Layout.astro";
+import BlogPost from "@/layouts/BlogPost.astro";
 import { formatDate } from "@/utils/date";
+
+const frontmatter = {
+  title: "welcome to biraj's blogs",
+};
 
 // Get all local blog posts
 const localPosts = Object.values(import.meta.glob("./*.md", { eager: true }));
@@ -55,43 +59,25 @@ const allPosts = [
 ].sort((a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime());
 ---
 
-<Layout title="biraj's blogs">
-  <main>
-    <h1>welcome to biraj's blogs</h1>
-
-    <section class="posts">
-      {
-        allPosts.map((post) => (
-          <div class="post">
-            <div class="post-title">
-              <a href={post.url} target={post.isExternal ? "_blank" : undefined}>
-                {post.title}
-              </a>
-              {post.isExternal && <span class="external-indicator">↗</span>}
-            </div>
-            <time datetime={post.pubDate}>{formatDate(post.pubDate)}</time>
+<BlogPost frontmatter={frontmatter}>
+  <section class="posts">
+    {
+      allPosts.map((post) => (
+        <div class="post">
+          <div class="post-title">
+            <a href={post.url} target={post.isExternal ? "_blank" : undefined}>
+              {post.title}
+            </a>
+            {post.isExternal && <span class="external-indicator">↗</span>}
           </div>
-        ))
-      }
-    </section>
-  </main>
-</Layout>
+          <time datetime={post.pubDate}>{formatDate(post.pubDate)}</time>
+        </div>
+      ))
+    }
+  </section>
+</BlogPost>
 
 <style>
-  main {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 2rem 1rem;
-  }
-
-  h1 {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    font-weight: normal;
-    border-bottom: 1px solid var(--accent-color);
-    padding-bottom: 0.5rem;
-  }
-
   .posts {
     display: flex;
     flex-direction: column;
@@ -124,14 +110,6 @@ const allPosts = [
 
   /* Mobile */
   @media (max-width: 600px) {
-    main {
-      padding: 1.5rem 1rem;
-    }
-
-    h1 {
-      font-size: 1.5rem;
-    }
-
     .post {
       flex-direction: column;
       gap: 0.25rem;
