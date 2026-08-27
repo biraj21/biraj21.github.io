@@ -7,10 +7,11 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "format": "prettier --write \"src/**/*.{js,css,md,html,ts}\" \"public/**/*.{js,css,md,html,ts}\""
+    "format": "prettier --write src"
   },
   "devDependencies": {
     "astro": "^7.2.4",
-    "prettier": "^3.9.6"
+    "prettier": "^3.9.6",
+    "prettier-plugin-astro": "^0.14.1"
   }
 }

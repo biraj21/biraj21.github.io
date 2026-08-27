@@ -1,5 +1,6 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import { formatDate } from "@/utils/date";
 
 const introLinks = {
   projects: "/from-scratch",
@@ -17,20 +18,16 @@ const navLinks = [
   { href: "/arrayvis", label: "visualize multi-dimensional arrays" },
 ];
 
-// const allPosts = Object.values(import.meta.glob("./posts/*.md", { eager: true }));
+const allPosts = Object.values(import.meta.glob("./posts/*.md", { eager: true }));
 
-// const posts = allPosts
-//   .filter((post) => !post.url?.includes(".draft"))
-//   .sort((a, b) => new Date(b.frontmatter.pubDate).getTime() - new Date(a.frontmatter.pubDate).getTime())
-//   .slice(0, 2)
-//   .map((post) => ({
-//     ...post,
-//     formattedDate: new Date(post.frontmatter.pubDate).toLocaleDateString("en-US", {
-//       year: "numeric",
-//       month: "short",
-//       day: "numeric",
-//     }),
-//   }));
+const posts = allPosts
+  .filter((post) => !post.url?.includes(".draft"))
+  .sort((a, b) => new Date(b.frontmatter.pubDate).getTime() - new Date(a.frontmatter.pubDate).getTime())
+  .slice(0, 2)
+  .map((post) => ({
+    ...post,
+    formattedDate: formatDate(post.frontmatter.pubDate),
+  }));
 ---
 
 <Layout title="Biraj">
@@ -72,7 +69,7 @@ const navLinks = [
 
       <hr />
 
-      <ul class="programs">
+      <ul class="home-list programs-list">
         <li>
           <a href="https://f.inc/" target="_blank" rel="noreferrer">Founders Inc Off Season II</a>
           <span>San Francisco</span>
@@ -84,12 +81,12 @@ const navLinks = [
       </ul>
     </section>
 
-    <!--
     {
       posts.length > 0 && (
         <section class="latest-posts">
           <h2>$ latest posts</h2>
-          <ul>
+          <hr />
+          <ul class="home-list latest-posts-list">
             {posts.map((post) => (
               <li>
                 <a href={post.url}>{post.frontmatter.title}</a>
@@ -99,7 +96,7 @@ const navLinks = [
           </ul>
         </section>
       )
-    } -->
+    }
 
     <hr />
 
@@ -163,31 +160,34 @@ const navLinks = [
       margin-bottom: 1rem;
     }
 
-    .programs {
+    .home-list {
       list-style: none;
       padding: 0;
       margin: 0;
       font-size: 0.95rem;
     }
 
-    .programs li {
-      margin-bottom: 0.4rem;
+    .home-list li {
       padding-left: 1rem;
       position: relative;
     }
 
-    .programs li::before {
+    .home-list li::before {
       content: "-";
       position: absolute;
       left: 0;
       color: var(--accent-color);
     }
 
-    .programs span {
+    .programs-list li {
+      margin-bottom: 0.4rem;
+    }
+
+    .programs-list span {
       color: #666;
     }
 
-    .programs span::before {
+    .programs-list span::before {
       content: " / ";
     }
 
@@ -201,13 +201,7 @@ const navLinks = [
       font-weight: normal;
     }
 
-    .latest-posts ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .latest-posts li {
+    .latest-posts-list li {
       margin-bottom: 0.5rem;
       display: flex;
       justify-content: space-between;
@@ -260,11 +254,11 @@ const navLinks = [
         gap: 0.2rem;
       }
 
-      .programs span {
+      .programs-list span {
         display: block;
       }
 
-      .programs span::before {
+      .programs-list span::before {
         content: none;
       }
 
