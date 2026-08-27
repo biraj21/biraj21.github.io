@@ -1,9 +1,9 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import { formatDate } from "@/utils/date";
 
 // Get all local blog posts
-const localPosts = Object.values(import.meta.glob('./*.md', { eager: true }));
-
+const localPosts = Object.values(import.meta.glob("./*.md", { eager: true }));
 
 // External blog posts
 const externalPosts = [
@@ -36,22 +36,22 @@ const externalPosts = [
     title: "What is speed?",
     url: "https://biraj21.medium.com/what-is-speed-d866c91d24cc",
     pubDate: "Nov 20, 2020",
-  }
+  },
 ];
 
 // Combine and sort all posts
 const allPosts = [
   // Transform local posts to match external post format
   ...localPosts
-    .filter(post => !post.url?.includes('.draft'))
-    .map(post => ({
+    .filter((post) => !post.url?.includes(".draft"))
+    .map((post) => ({
       title: post.frontmatter.title,
       url: post.url,
       pubDate: post.frontmatter.pubDate,
-      isExternal: false
+      isExternal: false,
     })),
   // Add isExternal flag to external posts
-  ...externalPosts.map(post => ({ ...post, isExternal: true }))
+  ...externalPosts.map((post) => ({ ...post, isExternal: true })),
 ].sort((a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime());
 ---
 
@@ -60,23 +60,19 @@ const allPosts = [
     <h1>welcome to biraj's blogs</h1>
 
     <section class="posts">
-      {allPosts.map(post => (
-        <div class="post">
-          <div class="post-title">
-            <a href={post.url} target={post.isExternal ? "_blank" : undefined}>
-              {post.title}
-            </a>
-            {post.isExternal && <span class="external-indicator">↗</span>}
+      {
+        allPosts.map((post) => (
+          <div class="post">
+            <div class="post-title">
+              <a href={post.url} target={post.isExternal ? "_blank" : undefined}>
+                {post.title}
+              </a>
+              {post.isExternal && <span class="external-indicator">↗</span>}
+            </div>
+            <time datetime={post.pubDate}>{formatDate(post.pubDate)}</time>
           </div>
-          <time datetime={post.pubDate}>
-            {new Date(post.pubDate).toLocaleDateString('en-US', { 
-              year: 'numeric',
-              month: 'short',
-              day: 'numeric'
-            })}
-          </time>
-        </div>
-      ))}
+        ))
+      }
     </section>
   </main>
 </Layout>

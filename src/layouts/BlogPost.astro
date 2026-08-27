@@ -1,19 +1,11 @@
 ---
 import Layout from "./Layout.astro";
+import { formatDate } from "@/utils/date";
 
 const { frontmatter } = Astro.props;
 const { title, pubDate, description, author } = frontmatter;
 
-// Format the date
-const formattedDate = pubDate
-  ? new Date(pubDate).toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-      // add timezone to UTC so it doesn't try to change the day based on the user's timezone
-      timeZone: "UTC",
-    })
-  : null;
+const formattedDate = formatDate(pubDate);
 
 // SEO meta tags
 const fullTitle = `${title} | biraj's blog`;
