@@ -1,11 +1,13 @@
 ---
 import Layout from "./Layout.astro";
 import { formatDate } from "@/utils/date";
+import { getReadingTime } from "@/utils/reading-time";
 
-const { frontmatter } = Astro.props;
+const { frontmatter, rawContent } = Astro.props;
 const { title, pubDate, description, author } = frontmatter;
 
 const formattedDate = formatDate(pubDate);
+const readingTime = rawContent ? getReadingTime(rawContent()) : null;
 
 // SEO meta tags
 const fullTitle = `${title} | biraj's blog`;
@@ -37,10 +39,12 @@ const seoDescription = description || "blog post by biraj";
       <header class="article-header">
         <h1>{title}</h1>
         {
-          (formattedDate || author) && (
+          (formattedDate || readingTime || author) && (
             <div class="article-meta">
               {formattedDate && <time datetime={pubDate}>{formattedDate}</time>}
-              {formattedDate && author && <span class="separator">•</span>}
+              {formattedDate && readingTime && <span class="separator">•</span>}
+              {readingTime && <span>{readingTime}</span>}
+              {(formattedDate || readingTime) && author && <span class="separator">•</span>}
               {author && <span class="author">by {author}</span>}
             </div>
           )
