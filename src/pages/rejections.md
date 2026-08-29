@@ -55,6 +55,9 @@ author: Biraj
 
     > After careful consideration, we didn’t feel that your application demonstrated the strong fit we look for in founders on our programs. As a result, we won’t be advancing your application to the next stage.
 
+13. Aug 28, 2026 - YC F26
+    - applied on 27th July with Shellular again. got rejected without any interview. got the same top 10% thing as last time
+
 <!--12. Mar 30, 2026 - Entrepreneur First, Bangalore
     - applied for the 2nd time, on 29th for Fall 26 Bangalore program
     - haven't received any response yet (it's June 3rd today)-->
