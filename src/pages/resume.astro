@@ -15,12 +15,7 @@
   <body>
     <main>
       <h1>Biraj</h1>
-      <p class="summary">
-        full-stack engineer, 3+ years. i like owning a product end to end: the UX users feel, the API under it, and the
-        infra it runs on. i also write toy versions of things i want to understand, like a TCP server with event loop in
-        C or Linux containers in Go. currently building <a href="https://shellular.dev" target="_blank">shellular.dev</a
-        >, which lets you remotely use your dev environment from your phone so you ship from anywhere.
-      </p>
+      <p class="summary">founder and full-stack engineer who cares as much about UX as uptime.</p>
       <p>
         <a href="mailto:biraj.pub@gmail.com" class="print-only">biraj.pub@gmail.com</a>
       </p>
@@ -48,7 +43,7 @@
 
       <section id="work-experience">
         <h2>work experience</h2>
-        <small class="no-print">(you can click on the role summary to see the details)</small>
+        <small class="no-print">(technical details are expandable)</small>
 
         <ul>
           <li class="work">
@@ -63,11 +58,18 @@
             <ul>
               <li>
                 <h4>co-founder</h4>
+                <ul class="work-highlights">
+                  <li>
+                    <a href="https://shellular.dev" target="_blank">Shellular</a> lets you remotely use your coding agents,
+                    terminals, localhost without port forwarding, code editor, and browser DevTools - all from your phone.
+                  </li>
+                  <li>
+                    shipped iOS, Android, web, and npm CLI in ~4 weeks and grew to <em>180+ weekly active users</em>.
+                    accepted into <em>Founders Inc's Off Season II</em> program in San Francisco.
+                  </li>
+                </ul>
                 <details>
-                  <summary>
-                    <a href="https://shellular.dev" target="_blank">Shellular</a> lets you remotely use your dev environment
-                    from your phone.
-                  </summary>
+                  <summary>more details</summary>
                   <ul>
                     <li>
                       works with laptops, desktops, Mac minis, EC2 boxes, Hetzner servers, DigitalOcean droplets, and
@@ -79,11 +81,10 @@
                       DevTools.
                     </li>
                     <li>
-                      runs over an <em>end-to-end encrypted relay</em>, and is
-                      <a href="https://github.com/shellular-org" target="_blank">open source</a>.
-                    </li>
-                    <li>
-                      accepted into the <em>Founders Inc Off Season II</em> program, in-person in San Francisco. 150+ WAUs.
+                      the <code>npx shellular</code> CLI connects to a central gateway through multi-region relays; the client
+                      picks the closest relay to keep remote sessions responsive. the relay is
+                      <a href="https://github.com/shellular-org" target="_blank">open source</a> and
+                      <em>end-to-end encrypted</em>, so the server cannot see code or terminal output.
                     </li>
                   </ul>
                 </details>
@@ -95,7 +96,7 @@
             <h3>
               <span>Outspeed</span>
               <small>
-                <time datetime="2024-08-01">aug 2024</time>
+                <time datetime="2024-09-01">sept 2024</time>
                 -
                 <time datetime="2026-02-15">feb 2026</time>
               </small>
@@ -103,39 +104,42 @@
             <ul>
               <li>
                 <h4>
-                  founding engineer
+                  backend engineer (founding)
                   <!-- <small>
                     <time datetime="2024-09-01">aug 2024</time>
                   </small> -->
                 </h4>
 
+                <ul class="work-highlights">
+                  <li>
+                    built a WebRTC-based real-time voice AI agent system from scratch using actor-model concurrency,
+                    compatible with the OpenAI Realtime API, plus a React SDK for developer integration.
+                  </li>
+                  <li>
+                    implemented real-time voice activity detection, including semantic VAD to reduce false
+                    interruptions.
+                  </li>
+                  <li>
+                    owned cloud infrastructure end to end: Terraform-managed AWS and a ClickHouse pipeline handling
+                    <em>3M+ events/day</em>.
+                  </li>
+                </ul>
+
                 <details>
-                  <summary>
-                    <em>full-stack engineer</em> for realtime voice AI at
-                    <a href="https://outspeed.com" target="_blank">Outspeed</a>. owned the product end to end: the agent
-                    runtime, the developer-facing SDK, the dashboard, and all the infra under it.
-                  </summary>
+                  <summary>more details</summary>
                   <ul>
                     <li>
-                      developed a WebRTC-based <em>real-time voice AI agent system</em> using a message-driven Actor Model
-                      architecture for concurrent runtime units.
+                      used Silero VAD and semantic turn-taking logic so agents could skip turns, avoid bad
+                      interruptions, and end conversations naturally.
                     </li>
                     <li>
-                      designed the system around the <em>OpenAI Realtime API specification</em> and built the
-                      <a href="https://www.npmjs.com/package/@outspeed/react" target="_blank">React SDK</a> for developer
-                      integrations.
+                      built real-time log monitoring that shipped cloud logs to Grafana Loki and streamed them to the
+                      frontend via SSE.
                     </li>
+                    <li>automated deployments across Nomad on EC2, S3, ElastiCache, and ECR with Terraform.</li>
                     <li>
-                      implemented <em>voice activity detection and semantic turn-taking</em> using Silero VAD, so agents could
-                      skip turns, avoid bad interruptions, and end conversations naturally.
-                    </li>
-                    <li>
-                      built <em>real-time log monitoring infrastructure</em> that shipped cloud logs to Grafana Loki and streamed
-                      them to the frontend via SSE.
-                    </li>
-                    <li>
-                      automated AWS deployments with <em>Terraform and Nomad</em>, and used <em>ClickHouse</em> for high-throughput
-                      analytics (~<em>3M+ events/day</em>) with async inserts and materialized views.
+                      tuned ClickHouse ingestion with async inserts and materialized views for high-throughput
+                      analytics.
                     </li>
                   </ul>
                 </details>
@@ -148,7 +152,7 @@
               <small>
                 <time datetime="2023-02-20">feb 2023</time>
                 -
-                <time datetime="2024-09-06">sept 2024</time>
+                <time datetime="2024-08-31">aug 2024</time>
               </small>
             </h3>
             <ul>
@@ -158,35 +162,34 @@
                   <small>
                     <time datetime="2023-09-01">sept 2023</time>
                     -
-                    <time datetime="2023-09-06">sept 2024</time>
+                    <time datetime="2024-08-31">aug 2024</time>
                   </small>
                 </h4>
 
+                <ul class="work-highlights">
+                  <li>
+                    built the AI core of <a href="https://thinkstack.ai" target="_blank">Thinkstack</a>: Pinecone-backed
+                    retrieval, intent detection, and a GraphQL + Flask backend on AWS.
+                  </li>
+                  <li>
+                    designed multi-tenant access control from scratch, including sub-users, RBAC, and API-key
+                    authentication.
+                  </li>
+                  <li>shipped Zapier, Slack, WhatsApp, Facebook Messenger, and Instagram integrations.</li>
+                </ul>
+
                 <details>
-                  <summary>
-                    built core pieces of
-                    <a href="https://thinkstack.ai" target="_blank">thinkstack.ai</a>, a multi-tenant B2B AI support
-                    platform for deploying customer-support chatbots on top of company knowledge bases.
-                  </summary>
+                  <summary>more details</summary>
                   <ul>
                     <li>
-                      shipped core product surfaces across the <em>GraphQL backend</em>, Flask AI services, RAG,
-                      Redis-backed caching & queues, and AWS services including Cognito, S3, and API Gateway.
+                      used Redis-backed caching and queues alongside AWS Cognito, S3, and API Gateway to support the
+                      product backend.
                     </li>
                     <li>
-                      built the knowledge-base answer pipeline with <em>Pinecone-backed retrieval</em>, crawler status
-                      tracking, and dashboard events for long-running ingestion jobs.
+                      added crawler status tracking and dashboard events for long-running knowledge-base ingestion jobs.
                     </li>
                     <li>
-                      designed the conversation routing layer using <em>tool-calling</em> for lead capture, ticket creation,
-                      and human handoff.
-                    </li>
-                    <li>
-                      built <em>tenant isolation and access control</em>: sub-users, RBAC roles/permissions, and API-key
-                      authentication for external integrations.
-                    </li>
-                    <li>
-                      created <em>Zapier, Slack, WhatsApp, Facebook Messenger, and Instagram</em> integrations for Thinkstack.
+                      designed tool-calling conversation routes for lead capture, ticket creation, and human handoff.
                     </li>
                   </ul>
                 </details>
@@ -200,28 +203,10 @@
                     <time datetime="2023-08-31">aug 2023</time>
                   </small>
                 </h4>
-                <details class="no-print">
-                  <summary>
-                    migrated
-                    <a href="https://www.pickcel.com/" target="_blank">Pickcel</a>'s backend codebase from node 12 to
-                    Node 18. also learned Docker.
-                  </summary>
-                  <ul>
-                    <li>
-                      worked with TypeScript, Node.js, and Mongoose to update and
-                      <em>optimize existing REST APIs by making some things concurrent</em>. set up integration testing
-                      CI using GitHub Actions.
-                    </li>
-                    <li>
-                      <em>optimized Dockerfile for our on-premise setup</em> by properly reordering layers, reducing consecutive
-                      build times and improving cache utilization. also added Redis to the stack.
-                    </li>
-                    <li>
-                      introduced <em>semantic git commits</em>, coding conventions, and structure, which is now embraced
-                      by all developers in the organization.
-                    </li>
-                  </ul>
-                </details>
+                <p class="work-summary">
+                  set up integration testing with Jest, SuperTest, and GitHub Actions; optimized Docker build and cache
+                  times, added Redis to the on-premise stack, and introduced team-wide coding conventions.
+                </p>
               </li>
             </ul>
           </li>
@@ -449,11 +434,6 @@
 
     <script is:inline>
       document.querySelectorAll("a.project__source-code").forEach(($a) => ($a.innerHTML = "&rarr; source code"));
-
-      // open all details elements before opening print dialog to ensure that all content is printed
-      window.addEventListener("beforeprint", () => {
-        document.querySelectorAll("details").forEach(($details) => $details.setAttribute("open", "open"));
-      });
     </script>
   </body>
 </html>
@@ -575,6 +555,13 @@
     margin-top: 8px;
     margin-left: 16px;
   }
+  #work-experience .work-highlights {
+    margin-top: 8px;
+    margin-left: 16px;
+  }
+  #work-experience .work-summary {
+    margin: 8px 0;
+  }
   #work-experience .work em {
     font-weight: 600;
   }
@@ -584,7 +571,7 @@
   }
 
   .summary {
-    text-align: left;
+    text-align: center;
   }
   .summary em {
     font-weight: 600;
@@ -675,6 +662,10 @@
 
     #work-experience .work details ul {
       margin-top: 4px;
+    }
+
+    #work-experience .work details {
+      display: none;
     }
 
     #projects .project p {
