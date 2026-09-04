@@ -1,12 +1,12 @@
 ---
 layout: "@/layouts/BlogPost.astro"
-title: Rejections
-description: "have faced more rejections than this, but these are the one i care about"
+title: rejections
+description: "i’ve faced more rejections than the ones listed here, but these are the ones i care about or find notable enough to include"
 pubDate: 2026-03-19
 author: Biraj
 ---
 
-1. March or April 2025 — Entrepreneur First, Bangalore
+1. March or April 2025 - Entrepreneur First, Bangalore
    - was part of selection hackathon, but didn't make it to the cohort
 
 2. Sept 11, 2025 - Exa
@@ -14,20 +14,20 @@ author: Biraj
    - cleared 15min intro
    - rejected after 1st technical round (frontend) for some reason. it was easy af tho.
 
-3. Jan 20, 2026 — South Park Commons, Bangalore
+3. Jan 20, 2026 - South Park Commons, Bangalore
    - rejected for community membership [no interview]
 
-4. Mar 14, 2026 — YC Spring 2026
+4. Mar 14, 2026 - YC Spring 2026
    - rejected for Hanging Piece [no interview, as expected]
 
-5. Mar 17, 2026 — The Bridge by Entrepreneur First
+5. Mar 17, 2026 - The Bridge by Entrepreneur First
    - received rejection email in under 10 hours
 
 6. Apr 3, 2026 — Founders Inc, Canopy
    - applied on Mar 21, got intro call email on Mar 31, had the call on Apr 3.
-   - H said he'll lmk his decision in half a day but i didn't get any response
+   - said he'll lmk his decision in half a day but i didn't get any response
    - even DMd on twitter on April 5th but got left on seen
-   - ps: i didn't have [Shellular](https://github.com/shellular-org) at the time of application. i talked about [OpenVoice](https://github.com/biraj21/open-voice) instead, so the rejection would have been understandable but ghosting... mehh whatever
+   - ps: i didn't have [Shellular](https://github.com/shellular-org) at the time of application. i talked about [OpenVoice](https://github.com/biraj21/open-voice) instead, so the rejection would have been understandable but ghosting after saying that he'll lmk his decision in half a day... mehh whatever, no grudges, but won't forget
 
 7. May 6, 2026 - Angel Investor xxx
    - emailed the GOAT xxx on May 6th to tell them about Shellular
@@ -57,6 +57,9 @@ author: Biraj
 
 13. Aug 28, 2026 - YC F26
     - applied on 27th July with Shellular again. got rejected without any interview. got the same top 10% thing as last time
+
+14. Sept 2, 2026 - a16z speedrun
+    - applied on 28th July with Shellular again, got rejected without interview.
 
 <!--12. Mar 30, 2026 - Entrepreneur First, Bangalore
     - applied for the 2nd time, on 29th for Fall 26 Bangalore program
