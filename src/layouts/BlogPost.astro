@@ -14,18 +14,7 @@ const fullTitle = `${title} | biraj's blog`;
 const seoDescription = description || "blog post by biraj";
 ---
 
-<Layout title={fullTitle} description={seoDescription} author={author}>
-  <!-- Open Graph / Social Media -->
-  <meta slot="head" property="og:type" content="article" />
-  <meta slot="head" property="og:title" content={title} />
-  <meta slot="head" property="og:description" content={seoDescription} />
-  <meta slot="head" property="og:url" content={Astro.url} />
-
-  <!-- Twitter -->
-  <meta slot="head" name="twitter:card" content="summary" />
-  <meta slot="head" name="twitter:title" content={title} />
-  <meta slot="head" name="twitter:description" content={seoDescription} />
-
+<Layout title={fullTitle} description={seoDescription} type="article" publishedTime={pubDate}>
   <main>
     <header>
       <nav>

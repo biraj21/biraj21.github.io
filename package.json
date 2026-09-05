@@ -10,6 +10,7 @@
     "format": "prettier --write src"
   },
   "devDependencies": {
+    "@astrojs/sitemap": "^3.7.4",
     "astro": "^7.2.10",
     "prettier": "^3.9.6",
     "prettier-plugin-astro": "^0.14.1"

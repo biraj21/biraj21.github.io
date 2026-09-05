@@ -1,0 +1,62 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+  type?: "website" | "article" | "profile";
+  publishedTime?: string | number | Date;
+}
+
+const {
+  title,
+  description = "Biraj — founder and full-stack engineer building backend systems, developer tools, and products.",
+  type = "website",
+  publishedTime,
+} = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? Astro.url).href;
+const imageUrl = new URL("/images/me.jpeg", canonicalUrl).href;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="author" content="Biraj" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <title>{title}</title>
+
+    <!-- Open Graph / social sharing -->
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content="Biraj" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={imageUrl} />
+    {
+      type === "article" && publishedTime && (
+        <meta property="article:published_time" content={new Date(publishedTime).toISOString()} />
+      )
+    }
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+
+    <slot name="head" />
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
+  </head>
+
+  <body>
+    <slot />
+  </body>
+</html>
