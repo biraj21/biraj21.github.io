@@ -1,7 +1,7 @@
 ---
-import Layout from "./Layout.astro";
 import { formatDate } from "@/utils/date";
 import { getReadingTime } from "@/utils/reading-time";
+import Layout from "./Layout.astro";
 
 const { frontmatter, rawContent } = Astro.props;
 const { title, pubDate, description, author } = frontmatter;
@@ -10,7 +10,7 @@ const formattedDate = formatDate(pubDate);
 const readingTime = rawContent ? getReadingTime(rawContent()) : null;
 
 // SEO meta tags
-const fullTitle = `${title} | biraj's blog`;
+const fullTitle = title ? `${title} | biraj's blog` : "biraj's blog";
 const seoDescription = description || "blog post by biraj";
 ---
 

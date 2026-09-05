@@ -2,10 +2,6 @@
 import BlogPost from "@/layouts/BlogPost.astro";
 import { formatDate } from "@/utils/date";
 
-const frontmatter = {
-  title: "welcome to biraj's blogs",
-};
-
 // Get all local blog posts
 const localPosts = Object.values(import.meta.glob("./*.md", { eager: true }));
 
@@ -59,7 +55,7 @@ const allPosts = [
 ].sort((a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime());
 ---
 
-<BlogPost frontmatter={frontmatter}>
+<BlogPost frontmatter={{}}>
   <section class="posts">
     {
       allPosts.map((post) => (
