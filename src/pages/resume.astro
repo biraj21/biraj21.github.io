@@ -15,26 +15,25 @@ import DocumentLayout from "@/layouts/DocumentLayout.astro";
     </p>
 
     <section id="socials">
-      <a href="https://github.com/biraj21" target="_blank">
+      <a href="https://github.com/biraj21" target="_blank" rel="noopener noreferrer">
         <img src="/images/icons/github.svg" alt="GitHub" />
         <span class="print-only">github.com/biraj21</span>
       </a>
-      <a href="https://x.com/biraj21_" target="_blank">
+      <a href="https://x.com/biraj21_" target="_blank" rel="noopener noreferrer">
         <img src="/images/icons/twitter.svg" alt="Twitter" />
         <span class="print-only">x.com/biraj21_</span>
       </a>
-      <a href="https://lichess.org/@/biraj21" target="_blank" class="no-print">
+      <a href="https://lichess.org/@/biraj21" target="_blank" rel="noopener noreferrer" class="no-print">
         <img src="/images/icons/lichess.svg" alt="Lichess" />
         <span class="print-only">lichess.org/@/biraj21</span>
       </a>
-      <a href="https://www.linkedin.com/in/biraj21/" target="_blank">
+      <a href="https://www.linkedin.com/in/biraj21/" target="_blank" rel="noopener noreferrer">
         <img src="/images/icons/linkedin.svg" alt="LinkedIn" />
         <span class="print-only">linkedin.com/in/biraj21</span>
       </a>
     </section>
 
     <hr />
-
     <section id="work-experience">
       <h2>work experience</h2>
       <small class="no-print">(technical details are expandable)</small>
@@ -54,8 +53,9 @@ import DocumentLayout from "@/layouts/DocumentLayout.astro";
               <h4>co-founder</h4>
               <ul class="work-highlights">
                 <li>
-                  <a href="https://shellular.dev" target="_blank">Shellular</a> lets you remotely use your coding agents,
-                  terminals, localhost without port forwarding, code editor, and browser DevTools - all from your phone.
+                  <a href="https://shellular.dev" target="_blank" rel="noopener noreferrer">Shellular</a> lets you remotely
+                  use your coding agents, terminals, localhost without port forwarding, code editor, and browser DevTools
+                  - all from your phone.
                 </li>
                 <li>
                   shipped iOS, Android, web, and npm CLI in ~4 weeks and grew to <span class="highlight"
@@ -77,7 +77,7 @@ import DocumentLayout from "@/layouts/DocumentLayout.astro";
                   <li>
                     the <code>npx shellular</code> CLI connects to a central gateway through multi-region relays; the client
                     picks the closest relay to keep remote sessions responsive. the relay is
-                    <a href="https://github.com/shellular-org" target="_blank">open source</a> and
+                    <a href="https://github.com/shellular-org" target="_blank" rel="noopener noreferrer">open source</a> and
                     <span class="highlight">end-to-end encrypted</span>, so the server cannot see code or terminal
                     output.
                   </li>
@@ -164,7 +164,9 @@ import DocumentLayout from "@/layouts/DocumentLayout.astro";
 
               <ul class="work-highlights">
                 <li>
-                  built the AI core of <a href="https://thinkstack.ai" target="_blank">Thinkstack</a>:
+                  built the AI core of <a href="https://thinkstack.ai" target="_blank" rel="noopener noreferrer"
+                    >Thinkstack</a
+                  >:
                   <span class="highlight">Pinecone-backed retrieval</span>, intent detection, and a GraphQL + Flask
                   backend on AWS.
                 </li>
@@ -215,57 +217,31 @@ import DocumentLayout from "@/layouts/DocumentLayout.astro";
     </section>
 
     <hr />
-
-    <div class="print-only">
-      <section id="skills">
-        <h2>skills</h2>
-        <ul>
-          <li>
-            <strong>programming languages:</strong>
-            <span>JavaScript, TypeScript, Python, Go, C, Bash</span>
-          </li>
-          <li>
-            <strong>libraries and frameworks:</strong>
-            <span>React, Node.js, Express.js, FastAPI, GraphQL</span>
-          </li>
-          <li>
-            <strong>infra & tooling:</strong>
-            <span>Docker, AWS, Terraform, GitHub Actions, HashiCorp Nomad</span>
-          </li>
-          <li>
-            <strong>database & analytics:</strong>
-            <span>MongoDB, MySQL, Redis, Firebase Firestore, ClickHouse</span>
-          </li>
-          <li>
-            <strong>auth & payments:</strong>
-            <span>Better Auth, Supabase, Firebase, OAuth, Stripe, Razorpay</span>
-          </li>
-        </ul>
-      </section>
-
-      <hr />
-    </div>
-
     <section id="projects">
       <h2>projects</h2>
       <p class="print-only projects-intro">
-        some of these are real products i shipped. the rest are toy versions of things i wanted to understand
-        internally, built with no or minimal libraries.
+        some of these are real products i've shipped, &amp; some are toy versions of things i wanted to understand
+        internally, with no or minimal libraries.
       </p>
+
       <div class="project">
-        <h3>
-          Hanging Piece: AI chess coach
-          <img src="/images/icons/typescript.svg" alt="TypeScript" />
-        </h3>
-        <p>
-          <a href="https://www.hangingpiece.com" target="_blank">an AI chess coach</a> that explains your mistakes in plain
-          English: why a move was bad, and what you should have played instead. Stockfish does the evaluation, Gemini 3 does
-          the explaining. 500 signups. open sourced both
-          <a href="https://github.com/biraj21/hanging-piece-fe" target="_blank">frontend</a> and
-          <a href="https://github.com/biraj21/hanging-piece-be" target="_blank">backend</a>.
-        </p>
-      </div>
-      <div class="project">
+        <div class="project">
+          <h3>
+            LLM serving engine from scratch
+            <img src="/images/icons/python.svg" alt="Python" />
+          </h3>
+          <p>
+            a toy LLM server built from scratch with batched inference, auto-regressive generation loop for token
+            streaming, request queueing, and independent sequence completion. supports both streaming and non-streaming
+            responses via FastAPI. also includes Whisper for STT.
+            <br />
+            <a
+              class="project__source-code"
+              href="https://github.com/biraj21/llm-server-from-scratch"
+              target="_blank"
+              rel="noopener noreferrer"></a>
+          </p>
+        </div>
         <h3>
           TCP server in C
           <img src="/images/icons/c.svg" alt="C" />
@@ -273,12 +249,18 @@ import DocumentLayout from "@/layouts/DocumentLayout.astro";
         <p>
           a single-threaded TCP server written in C with an event loop using the
           <code>poll()</code> system call, without any third-party library. also wrote
-          <a href="https://github.com/biraj21/http-server-in-c" target="_blank">an HTTP server in C</a> and a
-          <a href="https://github.com/biraj21/websocket-server-from-scratch" target="_blank"
+          <a href="https://github.com/biraj21/http-server-in-c" target="_blank" rel="noopener noreferrer"
+            >an HTTP server in C</a
+          > and a
+          <a href="https://github.com/biraj21/websocket-server-from-scratch" target="_blank" rel="noopener noreferrer"
             >WebSocket server in Node.js</a
           >, both with no dependencies.
           <br />
-          <a class="project__source-code" href="https://github.com/biraj21/tcp-server" target="_blank"></a>
+          <a
+            class="project__source-code"
+            href="https://github.com/biraj21/tcp-server"
+            target="_blank"
+            rel="noopener noreferrer"></a>
         </p>
       </div>
       <div class="project">
@@ -290,7 +272,11 @@ import DocumentLayout from "@/layouts/DocumentLayout.astro";
           a terminal text editor written from scratch in C. raw mode terminal handling, custom rendering, and text
           manipulation without ncurses or any third-party library.
           <br />
-          <a class="project__source-code" href="https://github.com/biraj21/texterm" target="_blank"></a>
+          <a
+            class="project__source-code"
+            href="https://github.com/biraj21/texterm"
+            target="_blank"
+            rel="noopener noreferrer"></a>
         </p>
       </div>
       <div class="project">
@@ -303,20 +289,11 @@ import DocumentLayout from "@/layouts/DocumentLayout.astro";
           (PID, mount, UTS), runs processes inside an extracted Ubuntu 22.04 root filesystem, and supports bind mounts
           for sharing host directories with containers.
           <br />
-          <a class="project__source-code" href="https://github.com/biraj21/focker" target="_blank"></a>
-        </p>
-      </div>
-      <div class="project">
-        <h3>
-          LLM serving engine from scratch
-          <img src="/images/icons/python.svg" alt="Python" />
-        </h3>
-        <p>
-          a toy LLM server built from scratch with batched inference, auto-regressive generation loop for token
-          streaming, request queueing, and independent sequence completion. supports both streaming and non-streaming
-          responses via FastAPI. also includes Whisper for STT.
-          <br />
-          <a class="project__source-code" href="https://github.com/biraj21/llm-server-from-scratch" target="_blank"></a>
+          <a
+            class="project__source-code"
+            href="https://github.com/biraj21/focker"
+            target="_blank"
+            rel="noopener noreferrer"></a>
         </p>
       </div>
       <div class="project">
@@ -328,15 +305,30 @@ import DocumentLayout from "@/layouts/DocumentLayout.astro";
           a lightweight vector database that runs entirely in the browser. supports cosine similarity search, persistent
           storage via IndexedDB, and batch operations. uses transformers.js with <a
             href="https://huggingface.co/BAAI/bge-small-en-v1.5"
-            target="_blank">bge-small-en-v1.5</a
+            target="_blank"
+            rel="noopener noreferrer">bge-small-en-v1.5</a
           > for generating embeddings. implements brute-force k-NN search.
           <br />
           <a
             class="project__source-code"
             href="https://github.com/biraj21/vector-db-from-scratch-in-browser"
-            target="_blank"></a>
+            target="_blank"
+            rel="noopener noreferrer"></a>
           <span class="separator-bar">|</span>
-          <a href="https://dotdb.summerlabs.xyz/" target="_blank">try it</a>
+          <a href="https://dotdb.summerlabs.xyz/" target="_blank" rel="noopener noreferrer">try it</a>
+        </p>
+      </div>
+      <div class="project">
+        <h3>
+          Hanging Piece: AI chess coach
+          <img src="/images/icons/typescript.svg" alt="TypeScript" />
+        </h3>
+        <p>
+          <a href="https://www.hangingpiece.com" target="_blank" rel="noopener noreferrer">an AI chess coach</a> that explains
+          your mistakes in plain English: why a move was bad, and what you should have played instead. Stockfish does the
+          evaluation, Gemini 3 does the explaining. 500 signups. open sourced both
+          <a href="https://github.com/biraj21/hanging-piece-fe" target="_blank" rel="noopener noreferrer">frontend</a> and
+          <a href="https://github.com/biraj21/hanging-piece-be" target="_blank" rel="noopener noreferrer">backend</a>.
         </p>
       </div>
       <div class="project">
@@ -349,8 +341,11 @@ import DocumentLayout from "@/layouts/DocumentLayout.astro";
           NumPy for tensor operations like +, -, *, /, matrix multiplication, transpose, etc. it also supports
           <a href="https://numpy.org/doc/stable/user/basics.broadcasting.html">broadcasting</a>.
           <br />
-          <a class="project__source-code" href="https://github.com/biraj21/neural-networks-from-scratch" target="_blank"
-          ></a>
+          <a
+            class="project__source-code"
+            href="https://github.com/biraj21/neural-networks-from-scratch"
+            target="_blank"
+            rel="noopener noreferrer"></a>
         </p>
       </div>
       <div class="project">
@@ -365,7 +360,11 @@ import DocumentLayout from "@/layouts/DocumentLayout.astro";
           automatically instruments OpenAI, Pinecone and Vercel's AI SDK. the dashboard shows LLM trace, with timing and
           usage metrics for each stage. built this in a hackathon.
           <br />
-          <a class="project__source-code" href="https://github.com/biraj21/obsy" target="_blank"></a>
+          <a
+            class="project__source-code"
+            href="https://github.com/biraj21/obsy"
+            target="_blank"
+            rel="noopener noreferrer"></a>
         </p>
       </div>
       <div class="project">
@@ -377,27 +376,42 @@ import DocumentLayout from "@/layouts/DocumentLayout.astro";
           a CLI tool to run Go programs in watch mode. to watch for changes, it uses <code>kqueue()</code> system call on
           macOS and <code>inotify</code> on Linux. no third-party dependencies.
           <br />
-          <a class="project__source-code" href="https://github.com/biraj21/gomon" target="_blank"></a>
+          <a
+            class="project__source-code"
+            href="https://github.com/biraj21/gomon"
+            target="_blank"
+            rel="noopener noreferrer"></a>
         </p>
       </div>
       <div class="project">
         <h3>Other</h3>
         <p>
-          <a href="https://github.com/biraj21/json-parser" target="_blank">JSON parser in Go</a> |
-          <a href="https://github.com/biraj21/web-wanderer" target="_blank">multi-threaded web crawler</a> |
-          <a href="https://github.com/biraj21/queen-js" target="_blank">an Express-like library</a> |
-          <a href="https://github.com/biraj21/node-multipart-formdata-decoder" target="_blank"
+          <a href="https://github.com/biraj21/json-parser" target="_blank" rel="noopener noreferrer"
+            >JSON parser in Go</a
+          > |
+          <a href="https://github.com/biraj21/web-wanderer" target="_blank" rel="noopener noreferrer"
+            >multi-threaded web crawler</a
+          > |
+          <a href="https://github.com/biraj21/queen-js" target="_blank" rel="noopener noreferrer"
+            >an Express-like library</a
+          > |
+          <a href="https://github.com/biraj21/node-multipart-formdata-decoder" target="_blank" rel="noopener noreferrer"
             >multipart/form-data decoder</a
           >
           |
-          <a href="https://github.com/biraj21/brainfuck-interpreter" target="_blank">brainfuck interpreter in C</a> |
-          <a href="https://github.com/biraj21/ai-search" target="_blank">AI search</a> |
-          <a href="https://github.com/biraj21/array-visualizer" target="_blank">tensor visualizer</a>
-          (<a href="https://arrayvis.netlify.app/" target="_blank">demo</a>) |
-          <a href="https://github.com/biraj21/findrep" target="_blank">findREp</a> |
+          <a href="https://github.com/biraj21/brainfuck-interpreter" target="_blank" rel="noopener noreferrer"
+            >brainfuck interpreter in C</a
+          > |
+          <a href="https://github.com/biraj21/ai-search" target="_blank" rel="noopener noreferrer">AI search</a> |
+          <a href="https://github.com/biraj21/array-visualizer" target="_blank" rel="noopener noreferrer"
+            >tensor visualizer</a
+          >
+          (<a href="https://arrayvis.netlify.app/" target="_blank" rel="noopener noreferrer">demo</a>) |
+          <a href="https://github.com/biraj21/findrep" target="_blank" rel="noopener noreferrer">findREp</a> |
           <a
             href="https://chromewebstore.google.com/detail/ask-my-ai-free-chatgpt-cl/clfbemdacihopdopaanknckjkgbpando"
             target="_blank"
+            rel="noopener noreferrer"
           >
             AI Anywhere</a
           >
@@ -405,18 +419,48 @@ import DocumentLayout from "@/layouts/DocumentLayout.astro";
       </div>
     </section>
 
-    <div>
-      <hr />
-      <section id="education">
-        <h2>education & interests</h2>
-        <p>
-          self-taught. although i did go to college but i never went to collect my degree because i always wanted to be
-          a dropout. i play chess (1900 rapid on <a href="https://lichess.org/@/biraj21" target="_blank">lichess</a>),
-          badminton, and sometimes
-          <a href="https://www.goodreads.com/user/show/189947877-biraj" target="_blank">read books</a>.
-        </p>
-      </section>
-    </div>
+    <hr />
+    <section id="skills">
+      <h2>skills</h2>
+      <ul>
+        <li>
+          <strong>programming languages:</strong>
+          <span>JavaScript, TypeScript, Python, Go, C, Bash</span>
+        </li>
+        <li>
+          <strong>libraries and frameworks:</strong>
+          <span>React, Node.js, Express.js, FastAPI, GraphQL</span>
+        </li>
+        <li>
+          <strong>infra & tooling:</strong>
+          <span>Docker, AWS, Terraform, GitHub Actions, HashiCorp Nomad</span>
+        </li>
+        <li>
+          <strong>database & analytics:</strong>
+          <span>MongoDB, MySQL, Redis, Firebase Firestore, ClickHouse</span>
+        </li>
+        <li>
+          <strong>auth & payments:</strong>
+          <span>Better Auth, Supabase, Firebase, OAuth, Stripe, Razorpay</span>
+        </li>
+      </ul>
+    </section>
+
+    <hr />
+    <section id="education">
+      <h2>education & interests</h2>
+      <p>
+        self-taught. i attended college, but my professional experience and independent work have been my primary
+        education. i play chess (1900 rapid on <a
+          href="https://lichess.org/@/biraj21"
+          target="_blank"
+          rel="noopener noreferrer">lichess</a
+        >), badminton, and sometimes
+        <a href="https://www.goodreads.com/user/show/189947877-biraj" target="_blank" rel="noopener noreferrer"
+          >read books</a
+        >.
+      </p>
+    </section>
 
     <hr class="no-print" />
 
@@ -424,7 +468,7 @@ import DocumentLayout from "@/layouts/DocumentLayout.astro";
       <p>no copyright. feel free to copy this stunning website.</p>
       <p>
         ps: wanna check out the inferior version of this site? head over to
-        <a href="https://biraj21.netlify.app" target="_blank">biraj21.netlify.app</a>.
+        <a href="https://biraj21.netlify.app" target="_blank" rel="noopener noreferrer">biraj21.netlify.app</a>.
       </p>
     </footer>
   </main>
@@ -675,18 +719,6 @@ import DocumentLayout from "@/layouts/DocumentLayout.astro";
 
     #education p {
       margin: 4px 0;
-    }
-
-    #skills ul {
-      list-style: none;
-    }
-
-    #skills li {
-      display: inline;
-    }
-
-    #skills li:not(:last-child)::after {
-      content: "; ";
     }
 
     #projects .project__source-code,
