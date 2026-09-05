@@ -32,7 +32,7 @@ the easy mistake is treating onboarding like a sequence of backend steps.
 3. connect slack
 ```
 
-and then saving that a user completed step one, but not step two.
+and then saving that a user completed steps one and two, but not step three.
 
 this is wrong in my opinion because `step two` is not a real thing in your product... it's just where you happened to put something in a wizard one day.
 
@@ -44,12 +44,10 @@ also that flag is redundant because usually it's just a shadow of data you alrea
 
 "connect slack" means there should be a valid slack connection in your db.
 
-so if you also save `completedStepThree = true` or `teammateInvited = true`, you now have two sources of truth.
-
-and two sources of truth always find a way to disagree.
+so if you also save `completedStepThree = true` or `teammateInvited = true`, you now have duplicate state.
 
 ```ts
-workspace.hasActiveSlackIntegration();
+hasConnectedIntegration(workspace);
 !user.completedStepThree;
 ```
 
@@ -62,7 +60,7 @@ instead of saving `completedStepTwo`, ask the backend what is actually true.
 ```ts
 hasWorkspace(user);
 user.emailVerifiedAt !== null;
-workspace.hasActiveSlackIntegration();
+hasConnectedIntegration(workspace);
 workspace.sentInvitesTo.length > 0;
 ```
 
@@ -85,30 +83,30 @@ create workspace -> invite teammate -> connect integration
 to:
 
 ```text
-connect integration -> create workspace -> invite teammate
+create workspace -> connect integration -> invite teammate
 ```
 
-or make the invite optional. or only show an integration step to a particular kind of customer.
+or make the invite optional. or only show an integration step only to a particular kind of customer.
 
 when you work this way, changing onboarding is mostly changing the rules for what to show.
 
-maybe inviting a teammate used to be required and now it is optional. fine. change the rule without having to migrate every user's `completed_step_2` value because step 2 now means something else.
+maybe inviting a teammate used to be required and now it is optional. fine. change the rule without having to migrate every user's `completedStepTwo` value because step 2 now means something else.
 
-small caveat: some reordering still needs real backend support. if an integration must belong to a workspace, you cannot show "connect integration" before "create workspace" unless your backend supports that. but that is a real product dependency, not an onboarding flag problem.
+obviously, some things still need to happen before others. you cannot ask someone to invite teammates before they have a workspace for those teammates to join. that is true no matter how you build onboarding.
 
 ```ts
 hasVerifiedEmail(user); // show the email verification step if false
-hasUsableWorkspace(user); // show the workspace setup step if false
+hasWorkspace(user); // show the workspace setup step if false
 hasConnectedIntegration(workspace); // show the integration step if false
 ```
 
 ### what should you save separately?
 
-you can still save onboarding events. just save them for what they are: analytics and behavior, not truth about product setup.
+you can still save onboarding events, but save them for what they are: analytics and behavior, not truth about product setup.
 
 also, not every onboarding action maps cleanly to data you can derive later.
 
-maybe the goal is educational, like watching an intro video or reading a short guide. maybe the user needs to pick a timezone or theme, but your app already filled in a default, so you cannot tell whether they chose it or you guessed it.
+maybe the goal is educational, like watching an intro video or reading a short guide. maybe the user needs to pick a timezone or theme, but your app already filled in a default, so you cannot tell whether they chose it.
 
 in those cases, save the action explicitly. just name it after the thing that happened, not the step where it happened.
 
@@ -123,9 +121,7 @@ user was assigned to experiment B
 
 this helps you understand how users behave during onboarding: what they skip, where they drop off, and which flow works better.
 
-but it should not decide whether slack is actually connected.
-
-that should still come from the slack connection in your database.
+and again, it should not decide whether slack is actually connected, because that should come from the slack connection in your db.
 
 ### finale
 
