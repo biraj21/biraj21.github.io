@@ -1,7 +1,7 @@
 :root {
   /* --accent-color: #4ecdc4; */
   --accent-color: #ffa86a;
-  --default-font: "Fira Code", monospace;
+  --default-font: var(--font-fira-code);
 }
 
 body {
@@ -9,7 +9,7 @@ body {
 }
 
 code {
-  font-family: "Fira Code", monospace !important;
+  font-family: var(--font-fira-code) !important;
 }
 
 /* blog nested list */

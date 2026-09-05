@@ -1,11 +1,21 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig, fontProviders } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://biraj.wtf',
   integrations: [sitemap()],
+  fonts: [
+    {
+      cssVariable: '--font-fira-code',
+      name: 'Fira Code',
+      provider: fontProviders.fontsource(),
+      styles: ['normal'],
+      weights: ['300 700'],
+      fallbacks: ['monospace'],
+    },
+  ],
   compressHTML: false,
   redirects: {
     '/blogs': '/posts',
